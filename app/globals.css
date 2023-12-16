@@ -1,27 +1,176 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #181B1A;
+  color: #D2D2D2;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #D2D2D2;
+  cursor: pointer;
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.3s;
+}
+
+a:hover {
+  color: #8E94AD;
+}
+
+a:hover img{
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.3s;
+  color: #8E94AD;
+  filter: brightness(0.7);
+}
+
+input, textarea, button {
+  background: none;
+  border-style: none;
+  border-bottom: solid rgba(209, 209, 209, 0.5)1px;
+  color: #D2D2D2;
+  transition: linear 0.5s;
+  caret-color: #8E94AD;
+  padding: 0 0.5em;
+}
+
+input[type=text] {
+  height: 2em;
+}
+
+textarea {
+  padding-top: 0.5rem;
+}
+
+input:focus-visible, input:hover, textarea:focus-visible, textarea:hover {
+  outline: none;
+  border-bottom: solid #8E94AD 1px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s, border-bottom linear 0.5s;
+    -webkit-text-fill-color: #D2D2D2 !important;
+}
+
+label {
+  transition: 0.5s;
+  height: 2em;
+  cursor: text;
+}
+
+label:focus-within {
+  color: #8E94AD;
+}
+
+.form-item {
+  position: relative;
+}
+
+.form-item:focus-within > label {
+  color: #8E94AD;
+  opacity: 0.7;
+}
+
+button {
+  border: solid rgba(209, 209, 209, 0.5)1px;
+  padding: 0.8em 3em;
+  cursor: pointer;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  background: rgb(52 52 52 / 70%);
+  text-transform: uppercase;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+button:hover {
+  border-color: #8E94AD;
+  color: #8E94AD;
+  background-color: rgb(77 77 77 / 70%);
+}
+
+h2 {
+  margin: 0;
+  font-family: var(--darker-grotesque);
+  font-size: 96px;
+  font-weight: 400;
+  opacity: 0.9;
+  color: #AD8E94;
+}
+
+h3 {
+  margin: 0;
+  font-family: var(--darker-grotesque);
+  font-size: 36px;
+  font-weight: 500;
+  opacity: 0.9;
+  line-height: 0.4em;
+  padding-bottom: 0.2em;
+}
+
+h4 {
+  font-weight: 500;
+  margin: 0;
+}
+
+.input-background {
+  position: absolute;
+  bottom: 0;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  width: 100%;
+  height: 0;
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.3s;
+  z-index: -1;
+  opacity: 0;
+}
+
+.input-background.textarea {
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.35s;
+}
+
+.form-item:focus-within > label + .input-background {
+  height: 2em;
+  opacity: 1;
+}
+
+.form-item:focus-within > label + .input-background.textarea {
+  height: 5rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #393939; /* Background color of the scrollbar thumb */
+  border-radius: 5px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #6a6a6a; /* Darken the scrollbar thumb on hover */
+}
+
+::-webkit-scrollbar-track-before,
+::-webkit-scrollbar-track-after {
+  background-color: transparent; /* Make the scrollbar track transparent */
+}
+
+@media (max-width: 1000px) {
+  h2 {
+    font-size: 80px;
+  }
 }

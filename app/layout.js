@@ -1,7 +1,6 @@
-import { Inter } from 'next/font/google'
+import 'normalize.css/normalize.css'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import { darkerGrotesque, inter, notoSans } from './assets/fonts';
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${darkerGrotesque.variable} ${notoSans.variable}`}>{children}</body>
     </html>
   )
 }

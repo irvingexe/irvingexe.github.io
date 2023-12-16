@@ -1,0 +1,80 @@
+#contact {
+  width: min(80%, 70rem);
+  min-height: calc(100vh - 4rem);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: max-content 1fr;
+  gap: min(2.5rem, 5vw);
+  padding: min(7rem, 10vw) 0;
+  margin-top: 4rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  grid-row: span 2;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.form-title {
+  line-height: 0.4em;
+  transform: translateX(-6px);
+  margin-bottom: 0.3em;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-name {
+  text-transform: capitalize;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  opacity: 0.8;
+}
+
+.contact-info>div {
+  display: flex;
+  gap: 1rem 2rem;
+}
+
+.contact-info .mailnphone {
+  flex-direction: column;
+  width: fit-content;
+}
+
+#contact textarea,
+#contact input {
+  width: 100%;
+  resize: none;
+}
+
+#contact button {
+  width: fit-content;
+}
+
+@media (max-width: 1000px) {
+  #contact {
+    grid-template-columns: 1fr;
+  }
+
+  .form-title {
+    line-height: 1em;
+  }
+
+  .contact-info {
+    margin-top: 3rem;
+  }
+
+  .contact-info>div {
+    justify-content: space-between;
+  }
+}

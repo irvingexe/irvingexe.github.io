@@ -1,0 +1,375 @@
+@import '../sections/Work/styles.module.scss';
+
+.button {
+  background: rgb(68 68 68 / 70%);
+}
+
+.card:active {
+  transform: none;
+}
+
+.card:hover .bg {
+  transform: none;
+}
+
+#work {
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+  width: min(calc((100% - 10px) * 0.8), 70rem);
+  transform: translateX(-5px);
+
+  .blur::-webkit-scrollbar-thumb {
+    background-color: #555555;
+
+    &:active {
+      background-color: #868686;
+    }
+  }
+
+  .desc,
+  .title,
+  .roles,
+  .project,
+  .card,
+  .blur,
+  .card-content {
+    transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+  }
+
+  .card-content {
+    height: fit-content;
+    padding-right: calc(min(4rem, 5vw) - 10px);
+    animation: none;
+  }
+
+  .gradient {
+    transition: cubic-bezier(0.65, 0, 0.35, 1) 1.6s;
+  }
+
+  .back {
+    opacity: 0;
+  }
+
+  button:hover {
+    border-color: #8E94AD;
+    color: #8E94AD;
+
+    img {
+      filter: brightness(0.7);
+    }
+  }
+
+  .project-detail {
+    transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: min(10rem, 30vw);
+    margin-top: 4rem;
+
+    p {
+      white-space-collapse: break-spaces;
+    }
+
+    .project-desc {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      width: min(35rem, 100%);
+    }
+
+    .project-about {
+      width: 100%;
+      display: grid;
+      gap: 4rem;
+
+      .first-image {
+        width: 100%;
+        height: auto;
+        border-radius: 13px;
+      }
+
+      .about-content {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 13px;
+        padding: 2rem 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .about {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          h3 {
+            opacity: 0.7;
+          }
+        }
+
+        .about-sub {
+          display: grid;
+          gap: 2rem 4rem;
+
+          h4 {
+            margin-bottom: 1rem;
+            opacity: 0.7;
+          }
+
+          >div {
+            line-height: 1.5em;
+          }
+
+          a {
+            display: flex;
+            gap: 0.5em;
+            align-items: center;
+            text-decoration: underline;
+            width: fit-content;
+          }
+        }
+      }
+    }
+
+    .project-image {
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 13px;
+      }
+    }
+
+    .next-project {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .next-name .gradient {
+      transition: cubic-bezier(0.65, 0, 0.35, 1) 0.5s;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .next-container {
+      width: 100%;
+      height: 45vh;
+      position: relative;
+      cursor: pointer;
+      border-radius: 13px;
+      overflow: hidden;
+      border: solid rgba(209, 209, 209, 0.5)1px;
+      transition: cubic-bezier(0.65, 0, 0.35, 1) 0.4s;
+
+      &:active {
+        transform: scale(.98);
+      }
+
+      .next-name {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 2rem min(4rem, 5vw) 4rem min(4rem, 5vw);
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+      }
+
+      &:hover {
+        .next-name {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        img {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+
+  .back {
+    position: absolute;
+    top: 2rem;
+    right: min(4rem, 5vw);
+    padding: 1px 1em 0 1em;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-weight: 300;
+    font-size: 14px;
+  }
+}
+
+#work.open {
+  width: min(90%, 90rem);
+  transform: translateX(0);
+
+  .project {
+    padding-top: 2rem;
+  }
+
+  .card {
+    height: calc(100vh - 2rem);
+    border-radius: 13px 13px 0 0;
+    border: solid 0px #2e2e2e;
+    border-color: transparent;
+    cursor: auto;
+
+    .number {
+      opacity: 0;
+    }
+  }
+
+  .blur {
+    backdrop-filter: blur(40px);
+    background-color: rgb(32 32 32 / 88%);
+    height: 100%;
+  }
+
+  .gradient {
+    opacity: 0;
+  }
+
+  .next-name .gradient {
+    opacity: 0.5;
+  }
+
+  .back {
+    opacity: 1;
+  }
+
+  .project-detail {
+    opacity: 1;
+    transition-delay: 0;
+  }
+}
+
+#work.close {
+
+  .desc,
+  .title,
+  .roles,
+  .back,
+  .project-detail {
+    opacity: 0;
+  }
+
+  .number {
+    opacity: 0;
+  }
+}
+
+#work {
+  .next-title {
+    height: 22px;
+  }
+}
+
+#work.next {
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+  width: min((100% - 10px) * 0.8, 70rem);
+  transform: translateX(-5px);
+
+  .project {
+    padding-top: 4rem;
+  }
+
+  .card {
+    transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+    height: 70vh;
+    margin: auto;
+    //border-radius: 13px;
+  }
+
+  .back {
+    opacity: 0;
+    transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+  }
+
+
+  .card-content {
+    transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    animation: no-scrollbar cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+
+    @keyframes no-scrollbar {
+      0% {
+        margin-right: 10px;
+      }
+
+      100% {
+        margin-right: 0;
+      }
+    }
+
+    .project-image {
+      transition: cubic-bezier(0.65, 0, 0.35, 1) 0.5s;
+      opacity: 0;
+    }
+  }
+
+  .next-project {
+    transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+    gap: 0;
+
+    .next-title {
+      transition: cubic-bezier(0.65, 0, 0.35, 1) 0.5s;
+      height: 0;
+      opacity: 0;
+    }
+
+    .next-name {
+      .gradient {
+        opacity: 1;
+      }
+
+      .number {
+        opacity: 1;
+      }
+    }
+
+    .next-container {
+      transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+      height: 70vh;
+      cursor: auto;
+      border-radius: 0;
+      border: solid rgba(209, 209, 209, 0.5) 0px;
+
+      &:hover {
+        .next-name {
+          background-color: rgba(0, 0, 0, 0);
+        }
+
+        img {
+          transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .project-about {
+    grid-template-columns: 40% 1fr;
+  }
+}
+
+@media (min-width: 700px) {
+  .about-sub {
+    grid-template-columns: 1fr 1fr;
+  }
+}
