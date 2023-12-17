@@ -20,6 +20,7 @@
   position: relative;
   overflow: hidden;
   color: #D2D2D2 !important;
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.3s;
 
   .bg {
     position: absolute;

@@ -9,7 +9,12 @@ import { useRouter } from 'next/navigation';
 export const Work = ({onProjectOpen}) => {
   const router = useRouter();
 
+  const handleScroll = (projectId) => {
+    document.getElementById(`work-${projectId}`).scrollIntoView({ behavior: 'smooth' });
+  }
+
   const openProject = (projectId) => {
+    handleScroll(projectId);
     onProjectOpen();
     setTimeout(() => {
       router.push(`${projectId}`);
@@ -20,7 +25,7 @@ export const Work = ({onProjectOpen}) => {
   <div id={styles.work}>
       {[...projects.values()].map((e, i) => (
         <div key={i} id={`work-${e.route}`} className={styles.project}>
-          <a className={styles.card} href={`#work-${e.route}`} onClick={() => openProject(e.route)}>
+          <div className={styles.card} onClick={() => openProject(e.route)}>
             <Image alt={e.name} src={require(`../../assets/projects/${i}/0.webp`)} className={styles.bg}/>
             <div className={styles.blur}>
               <div className={styles.gradient}/>
@@ -33,7 +38,7 @@ export const Work = ({onProjectOpen}) => {
                 <h2 className={styles.number}>0{i+1}</h2>
               </div>
             </div>
-          </a>
+          </div>
         </div>
       ))}
     </div>
