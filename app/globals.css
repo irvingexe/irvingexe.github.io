@@ -169,6 +169,10 @@ h4 {
   background-color: transparent; /* Make the scrollbar track transparent */
 }
 
+::selection {
+  background-color: #56484a;
+}
+
 @media (max-width: 1000px) {
   h2 {
     font-size: 80px;
