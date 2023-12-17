@@ -3,7 +3,7 @@
 
 * {
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  /*scroll-behavior: smooth;*/
 }
 
 body {
@@ -15,18 +15,18 @@ p {
   margin: 0;
 }
 
-a {
+a, .a {
   text-decoration: none;
   color: #D2D2D2;
   cursor: pointer;
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.3s;
 }
 
-a:hover {
+a:hover, .a:hover {
   color: #8E94AD;
 }
 
-a:hover img{
+a:hover img, .a:hover img{
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.3s;
   color: #8E94AD;
   filter: brightness(0.7);

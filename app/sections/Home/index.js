@@ -5,6 +5,10 @@ import arrow from '../../assets/arrow-down.svg'
 import {work} from '../../sections/Work/styles.module.scss'
 
 export const Home = () => {
+  const handleScroll = () => {
+    document.getElementById(work).scrollIntoView({ behavior: 'smooth' });
+  }
+  
   return (
     <div id={styles.home}>
       <div className={styles.container}>
@@ -16,10 +20,10 @@ export const Home = () => {
           Here I present some of my projects, feel free to take a look.
         </p>
       </div>
-      <a href={`#${work}`} className={styles.scroll}>
+      <div className={`${styles.scroll} a`} onClick={handleScroll}>
         Scroll
         <Image alt='arrow' src={arrow} />
-      </a>
+      </div>
     </div>
   )
 }

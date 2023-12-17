@@ -8,35 +8,53 @@ import {ido} from '../../sections/IDo/styles.module.scss'
 import Image from 'next/image'
 import menu from '@/app/assets/menu.svg'
 import logo from '../../assets/logo.svg'
+import { Transition } from '../Transition'
 
 export const Header = ({hidden}) => {
   const [open, setOpen] = useState();
+  const [playTransition, setPlayTransition] = useState(false);
+
+  const handleTransition = () => {
+    setPlayTransition(true);
+    setTimeout(() => {
+      setPlayTransition(false);
+    }, 1000);
+  }
+
+  const handleScroll = (sectionId) => {
+    handleTransition();
+    setOpen(false);
+    setTimeout(() => document.getElementById(sectionId).scrollIntoView({ }), 500);
+  }
   
   return (
-    <div id={styles.header} className={`${hidden && styles.hidden} ${open && styles.open}`}>
-      <div className={styles['header-container']}>
-        <div className={styles['header-content']}>
-          <a className={styles['desktop-item']} href={`#${home}`}>
-            <Image alt='Home' src={logo} className={styles.logo}/>
-          </a>
-          <a className={styles['mobile-item']} href={`#${contact}`}>Contact</a>
-          <div className={`${styles['header-center']} ${styles['desktop-item']}`}>
-            <a href={`#${work}`}>Work</a>
-            <a href={`#${ido}`}>I do</a>
-            <a href={`#${who}`}>Who</a>
+    <>
+      <div id={styles.header} className={`${hidden && styles.hidden} ${open && styles.open}`}>
+        <div className={styles['header-container']}>
+          <div className={styles['header-content']}>
+            <div className={`${styles['desktop-item']} a`} onClick={() => handleScroll(home)}>
+              <Image alt='Home' src={logo} className={styles.logo}/>
+            </div>
+            <div className={`${styles['mobile-item']} a`} onClick={() => handleScroll(contact)}>Contact</div>
+            <div className={`${styles['header-center']} ${styles['desktop-item']}`}>
+              <div className='a' onClick={() => handleScroll(work)}>Work</div>
+              <div className='a' onClick={() => handleScroll(ido)}>I do</div>
+              <div className='a' onClick={() => handleScroll(who)}>Who</div>
+            </div>
+            <div>
+              <div className={`${styles['desktop-item']} a`} onClick={() => handleScroll(contact)}>Contact</div>
+              <Image alt='menu' src={menu} className={styles['mobile-item']} onClick={() => setOpen(!open)}/>
+            </div>
           </div>
-          <div>
-            <a className={styles['desktop-item']} href={`#${contact}`}>Contact</a>
-            <Image alt='menu' src={menu} className={styles['mobile-item']} onClick={() => setOpen(!open)}/>
+          <div className={styles['header-mobile']}>
+            <div className='a' onClick={() => handleScroll(home)}>Home</div>
+            <div className='a' onClick={() => handleScroll(work)}>Work</div>
+            <div className='a' onClick={() => handleScroll(ido)}>I do</div>
+            <div className='a' onClick={() => handleScroll(who)}>Who</div>
           </div>
-        </div>
-        <div className={styles['header-mobile']}>
-          <a href={`#${home}`} onClick={() => setOpen(false)}>Home</a>
-          <a href={`#${work}`} onClick={() => setOpen(false)}>Work</a>
-          <a href={`#${ido}`} onClick={() => setOpen(false)}>I do</a>
-          <a href={`#${who}`} onClick={() => setOpen(false)}>Who</a>
         </div>
       </div>
-    </div>
+      <Transition play={playTransition}/>
+    </>
   )
 }

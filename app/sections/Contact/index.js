@@ -42,8 +42,8 @@ export const Contact = () => {
           </a>
         </div>
         <div className={styles.mailnphone}>
-          <a href="mailto:hello@irving.work">hello@irving.work</a>
-          <a href="tel:+526871305206">{'(+52) 687 130 5206'}</a>
+          <a href="mailto:hello@irving.work" target="_">hello@irving.work</a>
+          <a href="tel:+526871305206" target="_">{'(+52) 687 130 5206'}</a>
         </div>
       </div>
     </div>
