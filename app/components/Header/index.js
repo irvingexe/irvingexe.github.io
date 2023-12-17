@@ -7,6 +7,7 @@ import {contact} from '../../sections/Contact/styles.module.scss'
 import {ido} from '../../sections/IDo/styles.module.scss'
 import Image from 'next/image'
 import menu from '@/app/assets/menu.svg'
+import logo from '../../assets/logo.svg'
 
 export const Header = ({hidden}) => {
   const [open, setOpen] = useState();
@@ -15,7 +16,9 @@ export const Header = ({hidden}) => {
     <div id={styles.header} className={`${hidden && styles.hidden} ${open && styles.open}`}>
       <div className={styles['header-container']}>
         <div className={styles['header-content']}>
-          <a className={styles['desktop-item']} href={`#${home}`}>Home</a>
+          <a className={styles['desktop-item']} href={`#${home}`}>
+            <Image alt='Home' src={logo} className={styles.logo}/>
+          </a>
           <a className={styles['mobile-item']} href={`#${contact}`}>Contact</a>
           <div className={`${styles['header-center']} ${styles['desktop-item']}`}>
             <a href={`#${work}`}>Work</a>
