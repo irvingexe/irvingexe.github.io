@@ -24,7 +24,7 @@ export const Header = ({hidden}) => {
   const handleScroll = (sectionId) => {
     handleTransition();
     setOpen(false);
-    setTimeout(() => document.getElementById(sectionId).scrollIntoView({ }), 500);
+    setTimeout(() => document.getElementById(sectionId).scrollIntoView({ }), 750);
   }
   
   return (

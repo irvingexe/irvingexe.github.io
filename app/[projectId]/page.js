@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import back from '../assets/arrow-back.svg'
 import { ProjectContent } from './components/ProjectContent';
 import { ProjectHeader } from './components/ProjectHeader';
+import Lenis from '@studio-freight/lenis';
 
 const Project = ({params}) => {
   const [animate, setAnimate] = useState(false);
@@ -17,6 +18,7 @@ const Project = ({params}) => {
   const router = useRouter();
   const scrollContainer = useRef();
   const project = projects.get(params.projectId);
+  const scrollRef = useRef();
 
   const returnHome = () => {
     setClose(true);
@@ -41,6 +43,17 @@ const Project = ({params}) => {
   useEffect(() => {
     setAnimate(true);
   }, [])
+
+  useEffect(() => {
+    const lenis = new Lenis({wrapper: scrollRef.current, content: scrollContainer.current})
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  }, [scrollRef])
   
 
   if (!projects.get(params.projectId)) {
@@ -54,7 +67,7 @@ const Project = ({params}) => {
           <h2 className={styles.number}>0{project.index}</h2>
           <Image alt={project.name} src={require(`../assets/projects/${project.index-1}/0.webp`)} className={styles.bg}/>
           <button className={`${styles.back} ${styles.button}`} onClick={returnHome}><Image alt='<' src={back}/>BACK</button>
-          <div className={styles.blur}>
+          <div className={styles.blur} ref={scrollRef}>
             <div className={styles.gradient}/>
             <div className={styles['card-content']} ref={scrollContainer}>
               <ProjectHeader project={project}/>

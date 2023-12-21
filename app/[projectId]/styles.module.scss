@@ -66,6 +66,11 @@
     gap: min(10rem, 30vw);
     margin-top: 4rem;
 
+    .detail-container {
+      display: grid;
+      gap: min(10rem, 30vw);
+    }
+
     p {
       white-space-collapse: break-spaces;
     }
