@@ -1,11 +1,11 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 
-export const MotionDiv = ({children, delay = 0, once = false}) => {
+export const MotionDiv = ({children, delay = 0, once = false, distance = 0}) => {
 
   const fadeInAnimation = {
     initial: {
-      transform: 'translateX(4em)',
+      transform: `translateX(${distance + 4}em)`,
       opacity: 0
     },
     animate: {

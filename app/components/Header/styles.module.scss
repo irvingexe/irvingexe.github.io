@@ -1,5 +1,5 @@
 #header {
-  transition: all cubic-bezier(0.65, 0, 0.35, 1) 0.5s, height cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+  transition: all cubic-bezier(0.65, 0, 0.35, 1) 0.5s, height cubic-bezier(0.375, 0.010, 0.230, 1) 1s;
   width: 100%;
   height: 4rem;
   position: fixed;
@@ -8,10 +8,9 @@
   background: rgba(24, 27, 26, 0.7);
   z-index: 3000;
   overflow: hidden;
-  animation: show-header 0.5s cubic-bezier(0.65, 0, 0.35, 1);
 
   &.hidden {
-    opacity: 0;
+    height: 0;
   }
 
   &.open {
@@ -21,11 +20,11 @@
 
 @keyframes show-header {
   0% {
-    opacity: 0;
+    height: 0;
   }
 
   100% {
-    opacity: 1;
+    height: 4rem;
   }
 }
 

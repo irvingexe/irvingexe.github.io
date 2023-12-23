@@ -13,6 +13,7 @@ import Lenis from '@studio-freight/lenis';
 
 const Project = ({params}) => {
   const [animate, setAnimate] = useState(false);
+  const [spring, setSpring] = useState(false)
   const [close, setClose] = useState(false);
   const [next, setNext] = useState(false);
   const router = useRouter();
@@ -22,12 +23,10 @@ const Project = ({params}) => {
 
   const returnHome = () => {
     setClose(true);
+    setAnimate(false);
     setTimeout(() => {
-      setAnimate(false);
-      setTimeout(() => {
-        router.push(`/#work-${params.projectId}`);
-      }, 2000);
-    }, 800);
+      router.push(`/#work-${params.projectId}`);
+    }, 1000);
   }
 
   const handleNext = () => {
@@ -36,12 +35,16 @@ const Project = ({params}) => {
       setNext(!next);
       setTimeout(() => {
         router.push(`${project.next}`);
-      }, 800);
+      }, 700);
     }, 300);
   }
 
   useEffect(() => {
-    setAnimate(true);
+    setSpring(true);
+    setTimeout(() => {
+      setSpring(false);
+      setAnimate(true);
+    }, 700);
   }, [])
 
   useEffect(() => {
@@ -61,7 +64,7 @@ const Project = ({params}) => {
   }
 
   return (
-    <div id={styles.work} className={`${animate && styles.open} ${close && styles.close} ${next && styles.next}`}>
+    <div id={styles.work} className={`${spring && styles.spring} ${animate && styles.open} ${close && styles.close} ${next && styles.next}`}>
       <div className={styles.project}>
         <div className={styles.card}>
           <h2 className={styles.number}>0{project.index}</h2>

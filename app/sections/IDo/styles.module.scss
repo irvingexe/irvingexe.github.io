@@ -17,6 +17,13 @@
     line-height: 0.8;
   }
 
+  .ido-content {
+    padding: 0 max(10%, calc((100% - 70rem) / 2));
+    padding-bottom: 10rem;
+    max-width: 75rem;
+    font-weight: 300;
+  }
+
   .ido-container {
     transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
     border-bottom: 1px solid #4b4b4b;
@@ -47,6 +54,7 @@
 
     .img-plus {
       transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+      opacity: 0.7;
 
       &.open {
         transform: rotate(-45deg);
@@ -57,15 +65,16 @@
       line-height: 1em;
       padding-bottom: 0.2em;
       font-size: min(60px, 10vw);
-      color: #D2D2D2;
+      color: #8E94AD;
+      color: #929bbf;
     }
 
     p {
-      font-size: 1rem;
       position: absolute;
       top: 100%;
       margin-top: 3rem;
       padding-bottom: 1rem;
+      font-weight: 300;
     }
   }
 }

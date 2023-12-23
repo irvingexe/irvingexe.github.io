@@ -10,6 +10,7 @@ export const Card = ({onProjectOpen, e, i}) => {
   const router = useRouter();
 
   const handleScroll = (projectId) => {
+    //todo: scroll to the current scroll position first
     document.getElementById(`work-${projectId}`).scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -41,8 +42,8 @@ export const Card = ({onProjectOpen, e, i}) => {
 
   const xVelocity = useVelocity(scrollYProgress)
   const translateProgress = useTransform(scrollYProgress, [0, 1], [-100, 100])
-  const skewVelocity = useTransform(xVelocity, [-1, -0.1, 0.1, 1], [-4, 0, 0, 4])
-  const skewVelocity2 = useTransform(xVelocity, [-1, -0.1, 0.1, 1], [4, 0, 0, -4])
+  const skewVelocity = useTransform(xVelocity, [-1, -0.1, 0.1, 1], [-2, 0, 0, 2])
+  const skewVelocity2 = useTransform(xVelocity, [-1, -0.1, 0.1, 1], [2, 0, 0, -2])
 
   return (
     <motion.div key={i} id={`work-${e.route}`} className={styles.project} style={{skewY: skewVelocity}}>
@@ -50,7 +51,7 @@ export const Card = ({onProjectOpen, e, i}) => {
         className={styles.card} 
         onClick={() => openProject(e.route)}
         variants={fadeInAnimation}
-        transition={{ duration: .3}}
+        transition={{ duration: .7, ease: [0.65, 0, 0.35, 1]}}
         initial={'initial'}
         whileInView={'animate'}
       >

@@ -30,13 +30,13 @@ export const ProjectContent = ({project, nextImg, nextProject, next}) => {
   return (
     <div className={styles['project-detail']}>
       <div className={styles['project-desc']}>
-        <MotionP delay={.3} once={true}><p>{project.description}</p></MotionP>
-        <MotionDiv delay={.55} once={true}><a href={project.URL} target="_"><button className={styles.button}>VISIT WEBSITE <Image alt='>' src={arrowSkew}/></button></a></MotionDiv>
+        <MotionP delay={1.1} once={true}><p>{project.description}</p></MotionP>
+        <MotionDiv delay={1.35} once={true}><a href={project.URL} target="_"><button className={styles.button}>VISIT WEBSITE <Image alt='>' src={arrowSkew}/></button></a></MotionDiv>
       </div>
       <motion.div 
         className={styles['detail-container']}
         variants={fadeInDetail}
-        transition={{duration: .5, delay: .65}}
+        transition={{duration: .5, delay: 1.45}}
         initial='initial'
         animate= "animate"
       >

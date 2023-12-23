@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import {home} from '../../sections/Home/styles.module.scss'
 import {work} from '../../sections/Work/styles.module.scss'
@@ -13,6 +13,7 @@ import { Transition } from '../Transition'
 export const Header = ({hidden}) => {
   const [open, setOpen] = useState();
   const [playTransition, setPlayTransition] = useState(false);
+  const [firstRender, setFirstRender] = useState(true);
 
   const handleTransition = () => {
     setPlayTransition(true);
@@ -26,10 +27,17 @@ export const Header = ({hidden}) => {
     setOpen(false);
     setTimeout(() => document.getElementById(sectionId).scrollIntoView({ }), 750);
   }
+
+  useEffect(() => {
+    setFirstRender(false);
+  }, [])
   
   return (
     <>
-      <div id={styles.header} className={`${hidden && styles.hidden} ${open && styles.open}`}>
+      <div 
+        id={styles.header} 
+        className={`${(hidden || firstRender) && styles.hidden} ${open && styles.open}`}
+      >
         <div className={styles['header-container']}>
           <div className={styles['header-content']}>
             <div className={`${styles['desktop-item']} a`} onClick={() => handleScroll(home)}>

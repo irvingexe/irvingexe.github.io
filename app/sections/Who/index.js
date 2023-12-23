@@ -57,9 +57,9 @@ export const Who = () => {
           <div className='overflow-hidden'>
             <MotionP delay={.3}>
               <p>
-                {'First of all is amazing having you here, welcome.'}
+                {"Thanks for stopping by. I'm Irving, Software Engineer."}
                 <br/><br/>
-                {"As a developer crafting web applications, I'm majorly involved in Front-End development specializing in visual and interactive web experiences."}
+                {"As a multidisciplinary developer crafting web applications, I'm majorly involved in Front-End development specializing in visual and interactive web experiences."}
                 <br/><br/>
                 {'My expertise lies in creating robust digital solutions that not only look stunning but care about scalability and performance to deliver the best experience.'}
               </p>

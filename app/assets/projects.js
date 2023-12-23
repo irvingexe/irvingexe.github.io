@@ -4,7 +4,7 @@ const projects = new Map([
   ['formula1', {
     route: 'formula1',
     name: 'Formula 1',
-    subtitle: 'Live Coverage',
+    subtitle: 'Live Coverage & Box Office',
     description: 'Mexico Grand Prix live coverage and box office website.\n\nAs a part of the preparatives for the Mexico Grand Prix, the F1 live coverage site needed a fresher look so fans could follow up the event on these celebration days.',
     image: f1,
     cover: f1,
@@ -58,7 +58,7 @@ const projects = new Map([
   ['profuturo', {
     route: 'profuturo',
     name: 'Profuturo',
-    subtitle: 'Gamification for employee training',
+    subtitle: 'Gamification',
     description: "Turning training process into an interactive experience.\n\nA solution featuring interactive simulations and role-playing activities to equip employees with deeper client understanding and empathy.",
     image: f1,
     cover: f1,
@@ -75,8 +75,8 @@ const projects = new Map([
   ['lgds', {
     route: 'lgds',
     name: 'LGDS',
-    subtitle: 'POS',
-    description: 'POS software for efficient restaurant management experience.\n\nSince this software was designed from scratch, we took it as an opportunity to learn what the client actually needed and make the software be a natural extension of their proces.',
+    subtitle: 'Sales Management',
+    description: 'POS software for efficient sales management experience.\n\nSince this software was designed from scratch, we took it as an opportunity to learn what the client actually needed and make the software be a natural extension of their proces.',
     image: f1,
     cover: f1,
     imageDetail: f1,

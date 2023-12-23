@@ -52,6 +52,7 @@
   button:hover {
     border-color: #8E94AD;
     color: #8E94AD;
+    color: #a5afd8;
 
     img {
       filter: brightness(0.7);
@@ -166,7 +167,7 @@
       border-radius: 13px;
       overflow: hidden;
       border: solid rgba(209, 209, 209, 0.5)1px;
-      transition: cubic-bezier(0.65, 0, 0.35, 1) 0.4s;
+      transition: cubic-bezier(0.65, 0, 0.35, 0.95) 0.4s;
 
       &:active {
         transform: scale(.98);
@@ -216,7 +217,13 @@
   }
 }
 
+#work.spring {
+  transition: cubic-bezier(0.65, 0, 0.35, 0.95) 0.7s;
+  transform: scale(0.85);
+}
+
 #work.open {
+  transition: cubic-bezier(0.65, 0, 0.35, 0.95) 0.5s;
   width: min(90%, 90rem);
   transform: translateX(0);
 
@@ -260,20 +267,23 @@
   }
 }
 
+/*
 #work.close {
+  animation: close cubic-bezier(0.65, 0, 0.35, 0.95) 1s forwards;
+}
 
-  .desc,
-  .title,
-  .roles,
-  .back,
-  .project-detail {
-    opacity: 0;
+@keyframes close {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .number {
+  100% {
     opacity: 0;
+    transform: translateY(8rem);
   }
 }
+*/
 
 #work {
   .next-title {
