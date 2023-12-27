@@ -8,9 +8,11 @@ import { IDo } from "./sections/IDo";
 import { Who } from "./sections/Who";
 import { Work } from "./sections/Work";
 import Lenis from '@studio-freight/lenis'
+import { useLastRoute } from "./contexts/LastRouteProvider";
 
 export default function App() {
   const [hideInterface, setHideInterface] = useState();
+  const {setRoute} = useLastRoute();
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -21,6 +23,10 @@ export default function App() {
     }
 
     requestAnimationFrame(raf)
+  }, [])
+
+  useEffect(() => {
+    setRoute('/')
   }, [])
   
 

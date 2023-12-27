@@ -2,13 +2,13 @@ import Image from 'next/image'
 import React from 'react'
 import arrowSkew from '../../assets/arrow-skew.svg'
 import styles from '../styles.module.scss'
-import { ProjectHeader } from './ProjectHeader'
+import { ProjectHeader } from '../../components/ProjectCard/components/ProjectHeader'
 import { MotionP } from '@/app/components/animationWraps/MotionP'
 import { MotionDiv } from '@/app/components/animationWraps/MotionDiv'
 import {motion} from 'framer-motion'
 import { MotionTitle } from '@/app/components/animationWraps/MotionTitle'
 
-export const ProjectContent = ({project, nextImg, nextProject, next}) => {
+export const ProjectContent = ({animate, project, nextImg, nextProject, next = () => null}) => {
   const fadeInAnimation = {
     initial: {
       transform: 'scale(1.1)'
@@ -20,9 +20,11 @@ export const ProjectContent = ({project, nextImg, nextProject, next}) => {
 
   const fadeInDetail = {
     initial: {
+      opacity: 0,
       transform: 'translateY(4rem)'
     },
     animate: {
+      opacity: 1,
       transform: 'translateY(0)'
     }
   }
@@ -30,15 +32,15 @@ export const ProjectContent = ({project, nextImg, nextProject, next}) => {
   return (
     <div className={styles['project-detail']}>
       <div className={styles['project-desc']}>
-        <MotionP delay={1.1} once={true}><p>{project.description}</p></MotionP>
-        <MotionDiv delay={1.35} once={true}><a href={project.URL} target="_"><button className={styles.button}>VISIT WEBSITE <Image alt='>' src={arrowSkew}/></button></a></MotionDiv>
+        <MotionP delay={1} once={true} animate={animate}><p>{project.description}</p></MotionP>
+        <div className='w-fit'><MotionDiv delay={1.3} once={true} animate={animate}><a href={project.URL} target="_"><button className={styles.button}>VISIT WEBSITE <Image alt='>' src={arrowSkew}/></button></a></MotionDiv></div>
       </div>
       <motion.div 
         className={styles['detail-container']}
         variants={fadeInDetail}
-        transition={{duration: .5, delay: 1.45}}
-        initial='initial'
-        animate= "animate"
+        transition={{duration: .5, delay: 1.5}}
+        initial={animate ? 'initial' : 'animate'}
+        animate={animate && 'animate'}
       >
         <div className={styles['project-about']}>
           <Image alt={project.name} src={require(`../../assets/projects/${project.index-1}/1.webp`)} className={styles['first-image']}/>

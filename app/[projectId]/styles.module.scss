@@ -8,14 +8,22 @@
   transform: none;
 }
 
+/*
 .card:hover .bg {
   transform: none;
 }
+*/
 
 #work {
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
-  width: min(calc((100% - 10px) * 0.8), 70rem);
-  transform: translateX(-5px);
+
+  //width: min(calc((100% - 10px) * 0.8), 70rem);
+  //transform: translateX(-5px);
+
+}
+
+.project {
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
 
   .blur::-webkit-scrollbar-thumb {
     background-color: #555555;
@@ -42,7 +50,7 @@
   }
 
   .gradient {
-    transition: cubic-bezier(0.65, 0, 0.35, 1) 1.6s;
+    transition: cubic-bezier(0.65, 0, 0.35, 1) .5s;
   }
 
   .back {
@@ -79,7 +87,7 @@
     .project-desc {
       display: flex;
       flex-direction: column;
-      gap: 5rem;
+      gap: 4rem;
       width: min(35rem, 100%);
     }
 
@@ -222,14 +230,14 @@
   transform: scale(0.85);
 }
 
-#work.open {
-  transition: cubic-bezier(0.65, 0, 0.35, 0.95) 0.5s;
-  width: min(90%, 90rem);
-  transform: translateX(0);
+.project.spring {
+  transition: cubic-bezier(0.65, 0, 0.35, 0.95) 0.7s;
+  transform: scale(0.85);
+}
 
-  .project {
-    padding-top: 2rem;
-  }
+.project.open {
+  padding-top: 2rem;
+  width: min(90%, 90rem);
 
   .card {
     height: calc(100vh - 2rem);
@@ -267,10 +275,35 @@
   }
 }
 
-/*
-#work.close {
-  animation: close cubic-bezier(0.65, 0, 0.35, 0.95) 1s forwards;
+#work.landing .project.open {
+  width: calc(min((100% + 10px) * 0.9, 90rem));
+  transform: translateX(5px) !important;
+
+  .card {
+    clip-path: none !important;
+  }
+
+  .back {
+    animation: show-back cubic-bezier(0.65, 0, 0.35, 0.95) 1s forwards;
+  }
+
+  @keyframes show-back {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 }
+
+#work.close {
+  width: calc(100% - 10px);
+  transform: translateX(-5px) !important;
+}
+
+/*
 
 @keyframes close {
   0% {
@@ -289,22 +322,25 @@
   .next-title {
     height: 22px;
   }
+
+  margin: auto;
 }
 
 #work.next {
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
   width: min((100% - 10px) * 0.8, 70rem);
-  transform: translateX(-5px);
+  //transform: translateX(-5px);
 
   .project {
     padding-top: 4rem;
+    width: 100%;
   }
 
   .card {
     transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
     height: 70vh;
     margin: auto;
-    //border-radius: 13px;
+    border-radius: 0;
   }
 
   .back {

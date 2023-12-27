@@ -45,7 +45,7 @@ const projects = new Map([
     image: f1,
     cover: f1,
     imageDetail: f1,
-    role: ['Front-End', 'Character rigging'],
+    role: ['Front-End', 'Character Rigging'],
     roleLong: ['Front-End Development', 'Character rigging/Animation'],
     team: 'Alucina Studio',
     teamURL: 'https://alucinastudio.com/',
