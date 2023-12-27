@@ -36,13 +36,11 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
   }
 
   const handleBack = () => {
-    scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => {
       setOpen(false);
       returnHome();
-      setTimeout(() => {
-      }, 500);
-    }, 550);
+    }, scrollRef.current.scrollTop ? 550 : 0);
+    scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   const fadeInAnimation = {
