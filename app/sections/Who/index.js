@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import me from '../../assets/me.webp'
 import meRound from '../../assets/meRound.webp'
 import { MotionTitle } from '@/app/components/animationWraps/MotionTitle'
-import {motion} from 'framer-motion'
+import {motion, useInView} from 'framer-motion'
 import { MotionP } from '@/app/components/animationWraps/MotionP'
 
 export const Who = () => {
+  const fadeInAnchor = useRef();
+  const isInView = useInView(fadeInAnchor, {margin: "-50% 0% -50% 0%"});
+  let isOffView = useInView(fadeInAnchor, {margin: "-10% 0% -10% 0%"});
+  isOffView = !isOffView;
+  const [animate, setAnimate] = useState();
 
   const imgContainerFadeIn = {
     initial: {
@@ -30,32 +35,41 @@ export const Who = () => {
       transform: 'scale(1)'
     }
   }
+  
+  useEffect(() => {
+    if (isInView && !animate) {
+      setAnimate(true)
+    } else if (isOffView && animate) {
+      setAnimate(false)
+    }
+  }, [isInView, isOffView, animate])
+  
 
   return (
-    <div id={styles.who}>
+    <div id={styles.who} ref={fadeInAnchor}>
       <motion.div
         className={`${styles['img-main-container']} overflow-hidden`}
         variants={imgContainerFadeIn}
         transition={{duration: .5}}
         initial={'initial'}
-        whileInView={'animate'}
+        animate={animate ? 'animate' : 'initial'}
       >
         <motion.div
           variants={imgFadeIn}
           transition={{duration: .5}}
           initial={'initial'}
-          whileInView={'animate'}
+          animate={animate ? 'animate' : 'initial'}
         >
           <Image className={styles['img-main']} alt='Irving Mariscales' src={me}/>
         </motion.div>
       </motion.div>
       <div className={styles['txt-container']}>
         <div className={styles.title}>
-          <h2><MotionTitle delay={0.15}>Hey</MotionTitle></h2>
+          <h2><MotionTitle delay={0.15} isInView={animate}>Hey</MotionTitle></h2>
           <Image className={styles['img-mobile']} alt='Irving Mariscales' src={meRound}/>
         </div>
           <div className='overflow-hidden'>
-            <MotionP delay={.3}>
+            <MotionP delay={.3} isInView={animate}>
               <p>
                 {"Thanks for stopping by. I'm Irving, Software Engineer."}
                 <br/><br/>

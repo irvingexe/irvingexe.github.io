@@ -1,7 +1,7 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 
-export const MotionP = ({animate = true, delay = 0, once = false, children}) => {
+export const MotionP = ({isInView, animate = true, delay = 0, once = false, children}) => {
 
   const pFadeIn = {
     initial: {
@@ -20,7 +20,8 @@ export const MotionP = ({animate = true, delay = 0, once = false, children}) => 
       variants={pFadeIn}
       transition={{duration: .5, delay: delay}}
       initial={animate ? 'initial' : 'animate'}
-      whileInView={animate && 'animate'}
+      {...((isInView === undefined) && {whileInView: animate && 'animate'})}
+      animate={(isInView || !animate) ? 'animate' : 'initial'}
       viewport={{ once: once }}
     >
       {children}

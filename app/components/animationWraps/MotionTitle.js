@@ -12,7 +12,7 @@ const fadeInAnimation = {
   }
 }
 
-export const MotionTitle = ({children, delay = 0, once = false}) => {
+export const MotionTitle = ({isInView, animate = true, children, delay = 0, once = false}) => {
   return (
     <div className='flex whitespace-break-spaces'>
       {children.split('').map((e, i) => (
@@ -20,8 +20,9 @@ export const MotionTitle = ({children, delay = 0, once = false}) => {
           key={i}
           variants={fadeInAnimation}
           transition={{ duration: .5, delay: delay + i * 0.03}}
-          initial={'initial'}
-          whileInView={'animate'}
+          initial={animate ? 'initial' : 'animate'}
+          {...((isInView === undefined) && {whileInView: animate && 'animate'})}
+          animate={(isInView || !animate) ? 'animate' : 'initial'}
           viewport={{ once: once }}
         >
           {e}
