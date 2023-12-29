@@ -50,7 +50,7 @@ const Project = ({params}) => {
       <ProjectCard styles={styles} i={project.index - 1} e={project} close={close} inner={true} returnHome={returnHome} next={scrollNext}>
         <ProjectContent 
           project={project} 
-          nextImg={require(`../assets/projects/${project.nextIndex-1}/0.webp`)}
+          nextImg={require(`../assets/images/projects/${project.nextIndex-1}/0.webp`)}
           nextProject={projects.get(project.next)}
           next={handleNext}
           animate={false}

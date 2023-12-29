@@ -5,9 +5,6 @@ import {work} from '../../[projectId]/styles.module.scss'
 import {who} from '../../sections/Who/styles.module.scss'
 import {contact} from '../../sections/Contact/styles.module.scss'
 import {ido} from '../../sections/IDo/styles.module.scss'
-import Image from 'next/image'
-import menu from '@/app/assets/menu.svg'
-import logo from '../../assets/logo.svg'
 import { Transition } from '../Transition'
 
 export const Header = ({hidden}) => {
@@ -41,7 +38,11 @@ export const Header = ({hidden}) => {
         <div className={styles['header-container']}>
           <div className={styles['header-content']}>
             <div className={`${styles['desktop-item']} a`} onClick={() => handleScroll(home)}>
-              <Image alt='Home' src={logo} className={styles.logo}/>
+              <svg className={styles.logo} width="1em" height="1em" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.0222 19.7033L13 0.5" stroke="#D2D2D2" strokeWidth="4"/>
+                <path d="M22 1L4 1" stroke="#D2D2D2" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M19 20L1 20" stroke="#D2D2D2" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
             </div>
             <div className={`${styles['mobile-item']} a`} onClick={() => handleScroll(contact)}>Contact</div>
             <div className={`${styles['header-center']} ${styles['desktop-item']}`}>
@@ -51,7 +52,12 @@ export const Header = ({hidden}) => {
             </div>
             <div>
               <div className={`${styles['desktop-item']} a`} onClick={() => handleScroll(contact)}>Contact</div>
-              <Image alt='menu' src={menu} className={styles['mobile-item']} onClick={() => setOpen(!open)}/>
+                <svg className={styles['mobile-item']} onClick={() => setOpen(!open)} width="46" height="20" viewBox="0 0 46 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <mask id="path-1-inside-1_6_215" fill="white">
+                  <path d="M0 0H46V20H0V0Z"/>
+                  </mask>
+                  <path d="M0 1H46V-1H0V1ZM46 19H0V21H46V19Z" fill="#D2D2D2" mask="url(#path-1-inside-1_6_215)"/>
+                </svg>
             </div>
           </div>
           <div className={styles['header-mobile']}>

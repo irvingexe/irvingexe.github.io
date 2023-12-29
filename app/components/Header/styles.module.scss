@@ -44,6 +44,14 @@
 
   .logo {
     height: 1em;
+
+    path {
+      transition: cubic-bezier(0.65, 0, 0.35, 1) 0.3s;
+    }
+
+    &:hover path {
+      stroke: #8E94AD;
+    }
   }
 }
 

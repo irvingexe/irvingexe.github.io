@@ -22,9 +22,10 @@ export const Work = ({onProjectOpen}) => {
         <ProjectCard styles={styles} key={i} onProjectOpen={handleOpen} e={e} i={i}>
           {open && <ProjectContent
             project={e} 
-            nextImg={require(`../../assets/projects/${e.nextIndex-1}/0.webp`)}
+            nextImg={require(`../../assets/images/projects/${e.nextIndex-1}/0.webp`)}
             nextProject={projects.get(e.next)}
             animate={true}
+            noImages={true}
           />}
         </ProjectCard>
       ))}
