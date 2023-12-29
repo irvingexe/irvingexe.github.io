@@ -1,4 +1,4 @@
-import { BhuTuka_Expanded_One, Catamaran, Darker_Grotesque, Inter } from "next/font/google";
+import { BhuTuka_Expanded_One, Darker_Grotesque, Inter } from "next/font/google";
 
 export const darkerGrotesque = Darker_Grotesque({
   subsets: ['latin'],

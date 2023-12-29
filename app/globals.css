@@ -5,6 +5,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/app/assets/fonts/Inter/Inter-VariableFont_slnt,wght.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Noto_Sans';
+  src: url('/app/assets/fonts/Noto_Sans/NotoSans-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Darker_Groterque';
+  src: url('/app/assets/fonts/Darker_Grotesque/DarkerGrotesque-VariableFont_wght.ttf') format('ttf');
+}
+
+:root {
+  --darker-grotesque: 'Darker_Groterque', sans-serif;
+  --inter: 'Inter', sans-serif;
+  --noto-sans: 'Noto_Sans', sans-serif;
+}
+
 * {
   box-sizing: border-box;
   /*scroll-behavior: smooth;*/
