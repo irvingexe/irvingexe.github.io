@@ -74,6 +74,7 @@ label {
   transition: 0.5s;
   height: 2em;
   cursor: text;
+  opacity: 0.8;
 }
 
 label:focus-within {
@@ -155,11 +156,12 @@ h4 {
 }
 
 .form-item:focus-within > label + .input-background.textarea {
-  height: 5rem;
+  height: 6.5rem;
 }
 
 ::-webkit-scrollbar {
   width: 10px; /* Width of the scrollbar track */
+  height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -183,5 +185,36 @@ h4 {
 @media (max-width: 1000px) {
   h2 {
     font-size: 80px;
+  }
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(0%, -50%);
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid #D2D2D2;
+  border-color: #D2D2D2 transparent #D2D2D2 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+*:hover > div > .lds-dual-ring:after {
+  border-color: #8E94AD transparent #8E94AD transparent;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

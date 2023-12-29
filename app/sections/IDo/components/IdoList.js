@@ -6,7 +6,7 @@ export const IdoList = () => {
   const [openItem, setOpenItem] = useState(null);
   const fadeInAnchor = useRef();
   const isInView = useInView(fadeInAnchor, {margin: "-50% 0% -30% 0%"});
-  let isOffView = useInView(fadeInAnchor, {margin: "-10% 0% -10% 0%"});
+  let isOffView = useInView(fadeInAnchor, {margin: "0% 0% 0% 0%"});
   isOffView = !isOffView;
   const [animate, setAnimate] = useState();
   

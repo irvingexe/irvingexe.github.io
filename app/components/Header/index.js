@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import {home} from '../../sections/Home/styles.module.scss'
-import {work} from '../../sections/Work/styles.module.scss'
+import {work} from '../../[projectId]/styles.module.scss'
 import {who} from '../../sections/Who/styles.module.scss'
 import {contact} from '../../sections/Contact/styles.module.scss'
 import {ido} from '../../sections/IDo/styles.module.scss'

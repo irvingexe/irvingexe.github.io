@@ -9,6 +9,8 @@ import whatsapp from '../../assets/WhatsApp.svg'
 import { MotionTitle } from '@/app/components/animationWraps/MotionTitle'
 import { MotionDiv } from '@/app/components/animationWraps/MotionDiv'
 import { useInView } from 'framer-motion'
+import { ValidationError, useForm } from '@formspree/react'
+import { MotionP } from '@/app/components/animationWraps/MotionP'
 
 export const Contact = () => {
   const fadeInAnchor = useRef();
@@ -16,6 +18,11 @@ export const Contact = () => {
   let isOffView = useInView(fadeInAnchor, {margin: "-10% 0% -10% 0%"});
   isOffView = !isOffView;
   const [animate, setAnimate] = useState();
+  const [state, handleSubmit] = useForm("xyyryyzq");
+
+  const onSubmit = (e) => {
+    handleSubmit(e);
+  }
   
   useEffect(() => {
     if (isInView && !animate) {
@@ -24,34 +31,59 @@ export const Contact = () => {
       setAnimate(false)
     }
   }, [isInView, isOffView, animate])
-
+  
   return (
     <div id={styles.contact} ref={fadeInAnchor}>
       <h2 className={styles['form-title']}><MotionTitle isInView={animate}>{"Let's Talk"}</MotionTitle></h2>
-      <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-        <MotionDiv delay={0.4} isInView={animate}>
+      <form className={`relative ${styles.form} ${state.succeeded && styles.disabled}`} onSubmit={onSubmit}>
+        <div className='absolute w-full'>
+          <h2 className={styles['thanks']}>
+            <MotionTitle delay={1.2} isInView={animate && state.succeeded}>
+              {"Thank you!"}
+            </MotionTitle>
+          </h2>
+          <MotionP delay={1.4} isInView={animate && state.succeeded}>
+            <p className={`mt-20 ${styles.lead}`}>
+              {`It's great to hear from you! I will get back to you soon.`}
+            </p>
+          </MotionP>
+        </div>
+        <MotionDiv delay={0.4} isInView={animate && !state.succeeded}>
           <div className={`form-item ${styles['form-item']}`}>
             <label htmlFor="form-name" >Name </label>
             <div className='input-background'></div>
-            <input type="text" name="name" id='form-name'/>
+            <input type="text" name="name" id='form-name' required/>
           </div>
         </MotionDiv>
-        <MotionDiv delay={0.5} isInView={animate}>
+        <MotionDiv delay={0.5} isInView={animate && !state.succeeded}>
           <div className={`form-item ${styles['form-item']}`}>
             <label htmlFor="form-email" >Email </label>
             <div className='input-background'></div>
-            <input type="text" name="email" id='form-email'/>
+            <input type="email" name="email" id='form-email' required/>
           </div>
+          <ValidationError 
+            prefix="Email" 
+            field="email"
+            errors={state.errors}
+          />
         </MotionDiv>
-        <MotionDiv delay={0.6} isInView={animate}>
+        <MotionDiv delay={0.6} isInView={animate && !state.succeeded}>
           <div className={`form-item ${styles['form-item']}`}>
-            <label htmlFor="form-message" >Message </label>
+            <label htmlFor="message" >Message </label>
             <div className='input-background textarea'></div>
-            <textarea rows={4} cols={50} name="message" id='form-message'></textarea>
+            <textarea rows={4} cols={50} name="message" id='message' required></textarea>
           </div>
+          <ValidationError 
+            prefix="Message" 
+            field="message"
+            errors={state.errors}
+          />
         </MotionDiv>
-        <MotionDiv delay={0.7} isInView={animate}>
-          <button type='submit'>SEND</button>
+        <MotionDiv delay={0.7} isInView={animate && !state.succeeded}>
+          <button type='submit' disabled={state.submitting} className={`${styles.submit} ${state.submitting && styles.submitting}`}>
+            <div className={`${styles.loading} relative`}><div className="lds-dual-ring"/></div>
+            <div>SEND</div>
+          </button>
         </MotionDiv>
       </form>
       <div className={styles['contact-info']}>

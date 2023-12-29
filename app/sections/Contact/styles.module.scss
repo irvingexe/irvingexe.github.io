@@ -16,12 +16,22 @@
   grid-row: span 2;
   gap: 2rem;
   justify-content: space-between;
+
+  &.disabled * {
+    pointer-events: none;
+  }
 }
 
-.form-title {
+.form-title,
+.thanks {
   line-height: 0.4em;
   transform: translateX(-6px);
   margin-bottom: 0.3em;
+}
+
+.thanks {
+  color: #8E94AD;
+  font-size: min(60px, 10vw);
 }
 
 .form-item {
@@ -59,6 +69,28 @@
 
 #contact button {
   width: fit-content;
+}
+
+.submit {
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+  gap: 0;
+
+  .loading {
+    transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
+    opacity: 0;
+  }
+}
+
+.submit.submitting {
+  gap: 1em;
+  padding-left: calc(2.75em + 24px);
+  background-color: rgb(77 77 77 / 70%);
+  pointer-events: none;
+  cursor: default;
+
+  .loading {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1000px) {

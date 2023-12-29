@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import styles from '../styles.module.scss'
 import plus from '@/app/assets/plus.svg'
 import { MotionDiv } from '@/app/components/animationWraps/MotionDiv'
@@ -32,7 +32,7 @@ export const IdoContainer = ({title, children, index, isInView, isOpen, setItemO
           <Image alt='+' src={plus} className={`${styles['img-plus']} ${isOpen && styles.open}`}/>
           <p ref={pRef} className='text-xl'>{children}</p>
         </div>
-        <div className={styles.expand} style={isOpen ? {height: pRef.current.offsetHeight} : {}}/>
+        <div className={styles.expand} style={isOpen ? {height: `calc(3rem + ${pRef.current.offsetHeight}px)`} : {}}/>
       </MotionDiv>
     </motion.div>
   )

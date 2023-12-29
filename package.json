@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formspree/react": "^2.5.1",
     "@studio-freight/lenis": "^1.0.29",
     "framer-motion": "^10.16.5",
     "next": "14.0.2",

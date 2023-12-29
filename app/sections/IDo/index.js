@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 import { MotionTitle } from '@/app/components/animationWraps/MotionTitle'
-import { IdoContainer } from './components/IdoContainer'
 import { MotionP } from '@/app/components/animationWraps/MotionP'
 import { useInView } from 'framer-motion'
 import { IdoList } from './components/IdoList'
@@ -9,7 +8,7 @@ import { IdoList } from './components/IdoList'
 export const IDo = () => {
   const fadeInAnchor = useRef();
   const isInView = useInView(fadeInAnchor, {margin: "-50% 0% -50% 0%"});
-  let isOffView = useInView(fadeInAnchor, {margin: "-10% 0% -10% 0%"});
+  let isOffView = useInView(fadeInAnchor, {margin: "-10% 0% 0% 0%"});
   isOffView = !isOffView;
   const [animate, setAnimate] = useState();
   
