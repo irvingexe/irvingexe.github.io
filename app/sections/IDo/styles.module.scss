@@ -6,6 +6,7 @@
   width: 100%;
   padding-top: 4rem;
   margin: min(8rem, 20vw) 0;
+  overflow: hidden;
 
   .ido-title {
     font-size: min(5rem, 12vw);
@@ -71,6 +72,8 @@
       font-size: min(60px, 10vw);
       color: #8E94AD;
       color: #929bbf;
+      word-break: break-all;
+
     }
 
     p {

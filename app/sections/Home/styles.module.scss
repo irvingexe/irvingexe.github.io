@@ -1,21 +1,26 @@
 #home {
-  min-height: 100vh;
-  margin: auto;
-  padding: 4rem 0 6rem 0;
-  width: min(80%, 70rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 5rem;
+  width: 100%;
+  overflow: hidden;
 
-  h2 {
-    font-weight: 350;
-    font-size: 6rem;
-  }
+  >div {
+    min-height: 100vh;
+    margin: auto;
+    padding: 4rem 0 6rem 0;
+    width: min(80%, 70rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5rem;
 
-  p {
-    font-size: 20px;
-    font-weight: 300;
+    h2 {
+      font-weight: 350;
+      font-size: 6rem;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 300;
+    }
   }
 }
 

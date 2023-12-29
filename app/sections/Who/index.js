@@ -35,6 +35,17 @@ export const Who = () => {
       transform: 'scale(1)'
     }
   }
+
+  const imgFadeInCircle = {
+    initial: {
+      opacity: 0,
+      transform: 'translate(4rem, 0)'
+    },
+    animate: {
+      opacity: 1,
+      transform: 'translate(0, 0)'
+    }
+  }
   
   useEffect(() => {
     if (isInView && !animate) {
@@ -47,38 +58,47 @@ export const Who = () => {
 
   return (
     <div id={styles.who} ref={fadeInAnchor}>
-      <motion.div
-        className={`${styles['img-main-container']} overflow-hidden`}
-        variants={imgContainerFadeIn}
-        transition={{duration: .5}}
-        initial={'initial'}
-        animate={animate ? 'animate' : 'initial'}
-      >
+      <div>
         <motion.div
-          variants={imgFadeIn}
+          className={`${styles['img-main-container']} overflow-hidden`}
+          variants={imgContainerFadeIn}
           transition={{duration: .5}}
           initial={'initial'}
           animate={animate ? 'animate' : 'initial'}
         >
-          <Image className={styles['img-main']} alt='Irving Mariscales' src={me}/>
+          <motion.div
+            variants={imgFadeIn}
+            transition={{duration: .5}}
+            initial={'initial'}
+            animate={animate ? 'animate' : 'initial'}
+          >
+            <Image className={styles['img-main']} alt='Irving Mariscales' src={me}/>
+          </motion.div>
         </motion.div>
-      </motion.div>
-      <div className={styles['txt-container']}>
-        <div className={styles.title}>
-          <h2><MotionTitle delay={0.15} isInView={animate}>Hey</MotionTitle></h2>
-          <Image className={styles['img-mobile']} alt='Irving Mariscales' src={meRound}/>
-        </div>
-          <div className='overflow-hidden'>
-            <MotionP delay={.3} isInView={animate}>
-              <p>
-                {"Thanks for stopping by. I'm Irving, Software Engineer."}
-                <br/><br/>
-                {"As a multidisciplinary developer crafting web applications, I'm majorly involved in Front-End development specializing in visual and interactive web experiences."}
-                <br/><br/>
-                {'My expertise lies in creating robust digital solutions that not only look stunning but care about scalability and performance to deliver the best experience.'}
-              </p>
-            </MotionP>
+        <div className={styles['txt-container']}>
+          <div className={styles.title}>
+            <h2><MotionTitle delay={0.15} isInView={animate}>Hey</MotionTitle></h2>
+            <motion.div
+              variants={imgFadeInCircle}
+              transition={{duration: .5, delay: .15}}
+              initial={'initial'}
+              animate={animate ? 'animate' : 'initial'}
+            >
+              <Image className={styles['img-mobile']} alt='Irving Mariscales' src={meRound}/>
+            </motion.div>
           </div>
+            <div>
+              <MotionP delay={.3} isInView={animate}>
+                <p>
+                  {"Thanks for stopping by. I'm Irving, Software Engineer."}
+                  <br/><br/>
+                  {"As a multidisciplinary developer crafting web applications, I'm majorly involved in Front-End development specializing in visual and interactive web experiences."}
+                  <br/><br/>
+                  {'My expertise lies in creating robust digital solutions that not only look stunning but care about scalability and performance to deliver the best experience.'}
+                </p>
+              </MotionP>
+            </div>
+        </div>
       </div>
     </div>
   )

@@ -14,7 +14,7 @@ const fadeInAnimation = {
 
 export const MotionTitle = ({isInView, animate = true, children, delay = 0, once = false}) => {
   return (
-    <div className='flex whitespace-break-spaces'>
+    <div className='flex flex-wrap whitespace-break-spaces'>
       {children.split('').map((e, i) => (
         <motion.div
           key={i}

@@ -1,13 +1,18 @@
 #contact {
-  width: min(80%, 70rem);
-  min-height: calc(100vh - 4rem);
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: max-content 1fr;
-  gap: min(2.5rem, 5vw);
-  padding: min(7rem, 10vw) 0;
-  margin-top: 4rem;
+  width: 100%;
+  overflow: hidden;
+
+  >div {
+    width: min(80%, 70rem);
+    min-height: calc(100vh - 4rem);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content 1fr;
+    gap: min(2.5rem, 5vw);
+    padding: min(7rem, 10vw) 0;
+    margin-top: 4rem;
+  }
 }
 
 .form {
@@ -94,7 +99,7 @@
 }
 
 @media (max-width: 1000px) {
-  #contact {
+  #contact>div {
     grid-template-columns: 1fr;
   }
 
