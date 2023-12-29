@@ -10,7 +10,8 @@ import { ImgPlaceholder } from '@/app/components/ImgPlaceholder'
 export const ProjectContent = ({noImages, animate, project, nextImg, nextProject, next = () => null}) => {
   const fadeInAnimation = {
     initial: {
-      transform: 'scale(1.1)'
+      transform: 'scale(1.1)',
+      transition: 'none'
     },
     animate: {
       transform: 'scale(1)'
@@ -20,7 +21,8 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
   const fadeInDetail = {
     initial: {
       opacity: 0,
-      transform: 'translateY(4rem)'
+      transform: 'translateY(4rem)',
+      transition: 'none'
     },
     animate: {
       opacity: 1,

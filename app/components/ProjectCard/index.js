@@ -46,7 +46,8 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
     initial: {
       clipPath: 'rect(20% 80% 80% 20%)',
       opacity: 0,
-      transform: 'scale(1.2)'
+      transform: 'scale(1.2)',
+      transition: 'none'
     },
     animate: {
       clipPath: 'rect(0% 100% 100% 0%)',

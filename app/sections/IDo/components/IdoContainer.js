@@ -8,7 +8,8 @@ export const IdoContainer = ({title, children, index, isInView, isOpen, setItemO
 
   const variants = {
     initial: {
-      opacity: 0
+      opacity: 0,
+      transition: 'none'
     },
     animate: {
       opacity: 1

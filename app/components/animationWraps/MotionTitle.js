@@ -4,7 +4,8 @@ import {motion} from 'framer-motion'
 const fadeInAnimation = {
   initial: {
     transform: 'translateX(1em)',
-    opacity: 0
+    opacity: 0,
+    transition: 'none'
   },
   animate: {
     transform: 'translateX(0em)',

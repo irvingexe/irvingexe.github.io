@@ -6,7 +6,8 @@ export const MotionDiv = ({isInView, animate = true, children, duration = .5, de
   const fadeInAnimation = {
     initial: {
       transform: `translateX(${distance + 4}em)`,
-      opacity: 0
+      opacity: 0,
+      transition: 'none'
     },
     animate: {
       transform: 'translate(0)',
