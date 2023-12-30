@@ -10,7 +10,7 @@ export const MotionP = ({isInView, animate = true, delay = 0, once = false, chil
       transition: 'none'
     },
     animate: {
-      transform: 'translateX(0) skewX(0deg)',
+      transform: 'translateX(0rem) skewX(0deg)',
       opacity: 1
     }
   }

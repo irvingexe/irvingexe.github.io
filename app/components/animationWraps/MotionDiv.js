@@ -10,7 +10,7 @@ export const MotionDiv = ({isInView, animate = true, children, duration = .5, de
       transition: 'none'
     },
     animate: {
-      transform: 'translate(0)',
+      transform: 'translateX(0em)',
       opacity: 1
     }
   }

@@ -24,7 +24,7 @@ export const Who = () => {
     animate: {
       opacity: 1,
       clipPath: 'circle(200% at 0% 100%)',
-      transform: 'translate(0, 0)'
+      transform: 'translate(0rem, 0rem)'
     }
   }
 
@@ -41,12 +41,12 @@ export const Who = () => {
   const imgFadeInCircle = {
     initial: {
       opacity: 0,
-      transform: 'translate(4rem, 0)',
+      transform: 'translateX(4rem)',
       transition: 'none'
     },
     animate: {
       opacity: 1,
-      transform: 'translate(0, 0)'
+      transform: 'translateX(0rem)'
     }
   }
   

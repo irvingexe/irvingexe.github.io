@@ -41,11 +41,9 @@ export const Bubble = ({position, direction = 1, intensityX = 1, intensityY = 1}
     },
     animate: {
       opacity: 1,
-      transform: `translate(0, 0)`
+      transform: `translate(0px, 0px)`
     }
   }
-
-  console.log(x.current)
   
   return (
     <div ref={bubbleRef}>
