@@ -66,9 +66,9 @@
 
   .title {
     display: grid;
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: max-content max-content;
     gap: 6rem;
-    align-content: center;
+    justify-content: space-between;
 
     .img-mobile {
       display: block;

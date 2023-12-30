@@ -17,7 +17,11 @@ export const Work = ({onProjectOpen}) => {
   
   return (
     <div id={styles.work} className={styles.landing}>
-      <div className={`items-center ${styles.project}`} style={{minHeight: '80vh'}}><h2><MotionTitle>Selected work</MotionTitle></h2></div>
+      <div className={`items-center ${styles.project}`} style={{minHeight: '80vh'}}>
+        <h2 className='leading-none'>
+          <MotionTitle>{`Selected${window.innerWidth < 600 ? '\n' : ' '}work`}</MotionTitle>
+        </h2>
+      </div>
       {[...projects.values()].map((e, i) => (
         <ProjectCard styles={styles} key={i} onProjectOpen={handleOpen} e={e} i={i}>
           {open && <ProjectContent

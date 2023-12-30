@@ -33,10 +33,10 @@ export const Contact = () => {
       <div>
         <h2 className={styles['form-title']}><MotionTitle isInView={animate}>{"Let's Talk"}</MotionTitle></h2>
         <form className={`relative ${styles.form} ${state.succeeded && styles.disabled}`} onSubmit={onSubmit}>
-          <div className='absolute w-full'>
+          <div className={`absolute w-full flex flex-col ${styles.sent}`}>
             <h2 className={styles['thanks']}>
               <MotionTitle delay={1.2} isInView={animate && state.succeeded}>
-                {"Thank you!"}
+                {"Thank you for\nyour message!"}
               </MotionTitle>
             </h2>
             <MotionP delay={1.4} isInView={animate && state.succeeded}>

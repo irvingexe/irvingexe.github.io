@@ -86,6 +86,7 @@ export const Who = () => {
               transition={{duration: .5, delay: .15}}
               initial={'initial'}
               animate={animate ? 'animate' : 'initial'}
+              className='w-fit max-h-24'
             >
               <Image className={styles['img-mobile']} alt='Irving Mariscales' src={meRound}/>
             </motion.div>

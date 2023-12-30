@@ -17,7 +17,7 @@ export const MotionP = ({isInView, animate = true, delay = 0, once = false, chil
 
   return (
     <motion.div
-      className='origin-top-left w-full'
+      className={`${(isInView || !animate) && 'go'} anim-p origin-top-left w-full`}
       variants={pFadeIn}
       transition={{duration: .5, delay: delay}}
       initial={animate ? 'initial' : 'animate'}

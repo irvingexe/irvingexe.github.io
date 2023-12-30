@@ -135,7 +135,7 @@ button, [type='submit'] {
 
 button:hover {
   border-color: #8E94AD;
-  color: #8E94AD;
+  color: #a5afd8;
   background-color: rgb(77 77 77 / 70%);
 }
 
@@ -246,4 +246,22 @@ h4 {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.anim-p:after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: #181B1A;
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.7s;
+  transition-delay: .3s;
+  filter: blur(40px);
+  opacity: .7;
+}
+
+.anim-p.go:after {
+  height: 0%;
 }

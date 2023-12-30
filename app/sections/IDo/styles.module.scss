@@ -47,11 +47,12 @@
   }
 
   .title {
-    display: flex;
+    display: grid;
     justify-content: space-between;
     align-items: center;
     position: relative;
     gap: 2rem;
+    grid-template-columns: 1fr 3rem;
 
     .img-plus {
       transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
@@ -72,7 +73,7 @@
       font-size: min(60px, 10vw);
       color: #8E94AD;
       color: #929bbf;
-      word-break: break-all;
+      word-break: break-word;
 
     }
 
