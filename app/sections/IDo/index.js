@@ -10,7 +10,7 @@ export const IDo = () => {
   const isInView = useInView(fadeInAnchor, {margin: "-50% 0% -50% 0%"});
   let isOffView = useInView(fadeInAnchor, {margin: "-10% 0% 0% 0%"});
   isOffView = !isOffView;
-  const [animate, setAnimate] = useState();
+  const [animate, setAnimate] = useState(false);
   
   useEffect(() => {
     if (isInView && !animate) {

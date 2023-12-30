@@ -12,7 +12,7 @@ export const Who = () => {
   const isInView = useInView(fadeInAnchor, {margin: "-50% 0% -50% 0%"});
   let isOffView = useInView(fadeInAnchor, {margin: "-10% 0% -10% 0%"});
   isOffView = !isOffView;
-  const [animate, setAnimate] = useState();
+  const [animate, setAnimate] = useState(false);
 
   const imgContainerFadeIn = {
     initial: {

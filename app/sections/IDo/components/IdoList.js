@@ -8,7 +8,7 @@ export const IdoList = () => {
   const isInView = useInView(fadeInAnchor, {margin: "-50% 0% -30% 0%"});
   let isOffView = useInView(fadeInAnchor, {margin: "0% 0% 0% 0%"});
   isOffView = !isOffView;
-  const [animate, setAnimate] = useState();
+  const [animate, setAnimate] = useState(false);
   
   useEffect(() => {
     if (isInView && !animate) {
