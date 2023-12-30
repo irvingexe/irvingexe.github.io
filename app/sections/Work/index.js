@@ -19,7 +19,7 @@ export const Work = ({onProjectOpen}) => {
     <div id={styles.work} className={styles.landing}>
       <div className={`items-center ${styles.project}`} style={{minHeight: '80vh'}}>
         <h2 className='leading-none'>
-          <MotionTitle>{`Selected${window.innerWidth < 600 ? '\n' : ' '}work`}</MotionTitle>
+          <MotionTitle>{`Selected${(window && (window.innerWidth < 600)) ? '\n' : ' '}work`}</MotionTitle>
         </h2>
       </div>
       {[...projects.values()].map((e, i) => (

@@ -14,9 +14,6 @@ const fadeInAnimation = {
 }
 
 export const MotionTitle = ({isInView, animate = true, children, delay = 0, once = false}) => {
-  children.split('').map((e, i) => {
-    console.log(e === '\n')
-  })
   return (
     <div className='flex flex-wrap whitespace-break-spaces'>
       {children.split('').map((e, i) => (
