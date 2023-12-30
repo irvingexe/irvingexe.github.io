@@ -63,8 +63,6 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
 
   const xVelocity = useVelocity(scrollYProgress)
   const translateProgress = useTransform(scrollYProgress, [0, 1], [-95, 105])
-  const skewVelocity = useTransform(xVelocity, [-1, -0.1, 0.1, 1], [-2, 0, 0, 2])
-  const skewVelocity2 = useTransform(xVelocity, [-1, -0.1, 0.1, 1], [2, 0, 0, -2])
 
   useEffect(() => {
     if (next) scrollContainer.current.scrollIntoView({ block: "end", behavior: 'smooth' });
@@ -102,7 +100,7 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
   //sizes='(max-width: 768px) 100vw, (max-width: 1200px) 30vw, 20vw' 
   
   return (
-    <motion.div key={i} id={`work-${e.route}`} className={`${styles.project} ${close && styles.close} ${open && styles.open}`} style={(!inner || fadeIn) && {skewY: skewVelocity}}>
+    <motion.div key={i} id={`work-${e.route}`} className={`${styles.project} ${close && styles.close} ${open && styles.open}`}>
       <motion.div 
         className={styles.card} 
         onClick={() => {if (!inner) openProject(e.route)}}
@@ -118,7 +116,6 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
           ref={imgRef} 
           style={{
             translateY: translateProgress,
-            skewY: (!inner && fadeIn) && skewVelocity2
           }}
         >
           <Image alt={e.name} ref={imgRef} src={require(`../../assets/images/projects/${i}/0.webp`)} className={styles.bg}/>

@@ -39,10 +39,22 @@ const projects = new Map([
     team: 'Alucina Studio',
     teamURL: 'https://alucinastudio.com/',
     about: 'For new content creators, the main obstacle to begin in the streaming industry is not having the best equipment. Cartober aims to simplify streaming video creation for new content creators by providing virtual avatars as a solution to the obstacle of lacking the best equipment.\n\nCartoober is the result of combining cutting-edge technologies like React for building a scalable and flexible front-end, Pixi.js, a 2D rendering engine, to create high-performance graphics and animations, Tensorflow, a machine learning library, for realistic facial expressions and movements for the virtual avatars, and RTMP communication to ensure real-time communication between the platform and viewers, providing the posibility to stream to multiple social media platforms like YouTube and Facebook.',
-    next: 'profuturo',
+    next: 'lgds',
     URL: 'https://www.cartoober.com/',
     index: 3,
     nextIndex: 4
+  }],
+  ['lgds', {
+    route: 'lgds',
+    name: 'LGDS',
+    subtitle: 'Sales Management',
+    description: 'POS software for efficient sales management experience.\n\nSince this software was designed from scratch, we took it as an opportunity to learn what the client actually needed and make the software be a natural extension of their proces.',
+    role: ['Front-End', 'UI/UX Design'],
+    roleLong: ['Front-End Development', 'UI/UX Design'],
+    about: 'By focusing on the specific requirements of the client, the team was able to create a software that not only met their needs but also improved the overall efficiency of their processes.\n\nThe solution helps to address a common issue faced by many restaurants, feeling overwhelmed by the many options presented by traditional POS systems. By creating a software that is specific to its needs, it provides a more streamlined and user-friendly solution, ultimately contributing to the success and growth of the business.',
+    next: 'profuturo',
+    index: 4,
+    nextIndex: 5
   }],
   ['profuturo', {
     route: 'profuturo',
@@ -54,18 +66,6 @@ const projects = new Map([
     team: 'Alucina Studio',
     teamURL: 'https://alucinastudio.com/',
     about: "Introducing through an interactive experience the step by step of each procedure, but from the client's point of view, showcasing the constraints they may face, with the objective of developing empathy from employees to clients.",
-    next: 'lgds',
-    index: 4,
-    nextIndex: 5
-  }],
-  ['lgds', {
-    route: 'lgds',
-    name: 'LGDS',
-    subtitle: 'Sales Management',
-    description: 'POS software for efficient sales management experience.\n\nSince this software was designed from scratch, we took it as an opportunity to learn what the client actually needed and make the software be a natural extension of their proces.',
-    role: ['Front-End', 'UI/UX Design'],
-    roleLong: ['Front-End Development', 'UI/UX Design'],
-    about: 'By focusing on the specific requirements of the client, the team was able to create a software that not only met their needs but also improved the overall efficiency of their processes.\n\nThe solution helps to address a common issue faced by many restaurants, feeling overwhelmed by the many options presented by traditional POS systems. By creating a software that is specific to its needs, it provides a more streamlined and user-friendly solution, ultimately contributing to the success and growth of the business.',
     next: 'formula1',
     index: 5,
     nextIndex: 1

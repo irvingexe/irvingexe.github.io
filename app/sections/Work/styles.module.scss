@@ -41,7 +41,7 @@
 
   .number {
     transition: cubic-bezier(0.65, 0, 0.35, 1) 0.5s;
-    color: #f0f0f0;
+    color: #D2D2D2;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -50,9 +50,20 @@
     letter-spacing: 7px;
     line-height: 1em;
     z-index: 20;
-    -webkit-text-stroke: #f0dce0 1px;
-    color: transparent;
+    font-weight: bolder;
     font-family: var(--noto-sans);
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 20%;
+      top: 20%;
+      width: 60%;
+      height: 80%;
+      background: #00000098;
+      z-index: -1;
+      filter: blur(40px);
+    }
   }
 
   &:active {
