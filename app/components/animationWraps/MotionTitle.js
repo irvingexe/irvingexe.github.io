@@ -17,18 +17,19 @@ export const MotionTitle = ({isInView, animate = true, children, delay = 0, once
   return (
     <div className='flex flex-wrap whitespace-break-spaces'>
       {children.split('').map((e, i) => (
-        e === '\n' ? <div className='grow' key={i} style={{flexBasis: '100%', height: '0.4em'}}/> :
-        <motion.div
-          key={i}
-          variants={fadeInAnimation}
-          transition={{ duration: .5, delay: delay + i * 0.03}}
-          initial={animate ? 'initial' : 'animate'}
-          {...((isInView === undefined) && {whileInView: animate && 'animate'})}
-          animate={(isInView || !animate) ? 'animate' : 'initial'}
-          viewport={{ once: once }}
-        >
-          {e}
-        </motion.div>
+        e === '\n' 
+          ? <div className='grow' key={i} style={{flexBasis: '100%', height: '0.4em'}}/> 
+          : <motion.div
+              key={i}
+              variants={fadeInAnimation}
+              transition={{ duration: .5, delay: delay + i * 0.03}}
+              initial={animate ? 'initial' : 'animate'}
+              {...((isInView === undefined) && {whileInView: animate && 'animate'})}
+              animate={(isInView || !animate) ? 'animate' : 'initial'}
+              viewport={{ once: once }}
+            >
+              {e}
+            </motion.div>
       ))}
     </div>
   )

@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useState } from 'react'
 import styles from '../../[projectId]/styles.module.scss'
 import projects from '@/app/assets/projects';

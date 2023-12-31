@@ -28,7 +28,6 @@
 
 * {
   box-sizing: border-box;
-  /*scroll-behavior: smooth;*/
 }
 
 body {
@@ -189,22 +188,22 @@ h4 {
 }
 
 ::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar track */
+  width: 10px;
   height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #393939; /* Background color of the scrollbar thumb */
-  border-radius: 5px; /* Rounded corners for the scrollbar thumb */
+  background-color: #393939;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background-color: #6a6a6a; /* Darken the scrollbar thumb on hover */
+  background-color: #6a6a6a;
 }
 
 ::-webkit-scrollbar-track-before,
 ::-webkit-scrollbar-track-after {
-  background-color: transparent; /* Make the scrollbar track transparent */
+  background-color: transparent;
 }
 
 ::selection {

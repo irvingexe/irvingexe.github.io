@@ -8,18 +8,8 @@
   transform: none;
 }
 
-/*
-.card:hover .bg {
-  transform: none;
-}
-*/
-
 #work {
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
-
-  //width: min(calc((100% - 10px) * 0.8), 70rem);
-  //transform: translateX(-5px);
-
 }
 
 .project {
@@ -328,21 +318,6 @@
   transform: translateX(-5px) !important;
 }
 
-/*
-
-@keyframes close {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(8rem);
-  }
-}
-*/
-
 #work {
   .next-title {
     height: 22px;
@@ -354,7 +329,6 @@
 #work.next {
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
   width: min((100% - 10px) * 0.8, 70rem);
-  //transform: translateX(-5px);
 
   .project {
     padding-top: 4rem;

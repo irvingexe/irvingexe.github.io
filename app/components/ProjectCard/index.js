@@ -17,7 +17,6 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
   const [fadeIn, setFadeIn] = useState()
 
   const handleScroll = (projectId) => {
-    //todo: scroll to the current scroll position first
     document.getElementById(`work-${projectId}`).scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -88,10 +87,7 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
     }
   }, [scrollRef, inner])
 
-  //console.log(lastRoute, e.route, fadeIn)
-
   useEffect(() => {
-    //setFadeIn(lastRoute !== e.route)
   }, [lastRoute, e.route])
   
   useEffect(() => {
@@ -103,8 +99,6 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
   useEffect(() => {
     setOpen(inner);
   }, [])
-  
-  //sizes='(max-width: 768px) 100vw, (max-width: 1200px) 30vw, 20vw' 
   
   return (
     <motion.div key={i} id={`work-${e.route}`} className={`${styles.project} ${close && styles.close} ${open && styles.open}`}>
