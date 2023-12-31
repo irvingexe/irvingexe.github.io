@@ -75,7 +75,13 @@ export const Who = () => {
             initial={'initial'}
             animate={animate ? 'animate' : 'initial'}
           >
-            <Image className={styles['img-main']} alt='Irving Mariscales' src={me}/>
+            <Image 
+              className={styles['img-main']} 
+              alt='Irving Mariscales' 
+              src={me}
+              placeholder='blur' 
+              sizes={'(max-width: 1500px) 40vw, 350px'}
+            />
           </motion.div>
         </motion.div>
         <div className={styles['txt-container']}>
@@ -88,7 +94,13 @@ export const Who = () => {
               animate={animate ? 'animate' : 'initial'}
               className='w-fit max-h-24'
             >
-              <Image className={styles['img-mobile']} alt='Irving Mariscales' src={meRound}/>
+              <Image 
+                className={styles['img-mobile']} 
+                alt='Irving Mariscales' 
+                src={meRound}
+                placeholder='blur' 
+                sizes={'30vw'}
+              />
             </motion.div>
           </div>
             <div>

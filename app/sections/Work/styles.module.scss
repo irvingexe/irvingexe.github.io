@@ -148,3 +148,13 @@
   white-space: nowrap;
   backdrop-filter: blur(10px);
 }
+
+@media (max-width: 700px) {
+  .card {
+    height: 60vh;
+
+    .blur {
+      overflow: hidden;
+    }
+  }
+}

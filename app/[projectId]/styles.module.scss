@@ -116,7 +116,7 @@
         backdrop-filter: blur(10px);
         background: rgba(255, 255, 255, 0.07);
         border-radius: 13px;
-        padding: 2rem 3rem;
+        padding: 2rem min(3rem, 6vw);
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -447,5 +447,22 @@
 @media (min-width: 700px) {
   .about-sub {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .project .card-content {
+    padding-right: calc(min(4rem, 5vw));
+  }
+}
+
+@media (max-width: 400px) {
+  .website-btn {
+    width: 100%;
+
+    .button {
+      width: 100%;
+      justify-content: center;
+    }
   }
 }

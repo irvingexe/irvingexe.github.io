@@ -34,7 +34,7 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
     <div className={styles['project-detail']}>
       <div className={styles['project-desc']}>
         <MotionP delay={1} once={true} animate={animate}><p>{project.description}</p></MotionP>
-        <div className='w-fit'>
+        <div className={`w-fit ${styles['website-btn']}`}>
           <MotionDiv delay={1.3} once={true} animate={animate}>
             <a href={project.URL} target="_">
               <button className={styles.button}>
@@ -55,7 +55,13 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
         animate={animate && 'animate'}
       >
         <div className={styles['project-about']}>
-          <ImgPlaceholder noImage={noImages} alt={project.name} src={require(`../../assets/images/projects/${project.index-1}/1.webp`)} className={styles['first-image']}/>
+          <ImgPlaceholder 
+            sizes={'(max-width: 1000px) 100vw, (max-width: 1600px) 50vw, 550px'}
+            noImage={noImages}
+            alt={project.name}
+            src={require(`../../assets/images/projects/${project.index-1}/1.webp`)}
+            className={styles['first-image']}
+          />
           <div className={styles['about-content']}>
             <div className={styles.about}>
               <h3>About</h3>
@@ -78,7 +84,14 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
             </div>
           </div>
         </div>
-        <div className={styles['project-image']}><ImgPlaceholder noImage={noImages} alt={project.name} src={require(`../../assets/images/projects/${project.index-1}/2.webp`)}/></div>
+        <div className={styles['project-image']}>
+          <ImgPlaceholder 
+            noImage={noImages} 
+            alt={project.name} 
+            src={require(`../../assets/images/projects/${project.index-1}/2.webp`)}
+            sizes={'(max-width: 1600px) 100vw, 1500px'}
+          />
+        </div>
         <div className={styles['next-project']}>
           <div className={styles['next-title']}><h3><MotionTitle>Next work</MotionTitle></h3></div>
           <div className={styles['next-container']} onClick={next}>
@@ -89,7 +102,12 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
               whileInView='animate'
               transition={{duration: .5}}
             >
-              <ImgPlaceholder noImage={noImages} alt='Next' src={nextImg}/>
+              <ImgPlaceholder 
+                noImage={noImages} 
+                alt='Next' 
+                src={nextImg}
+                sizes={'(max-width: 1600px) 100vw, 1500px'}
+              />
             </motion.div>
             <div className={styles['next-name']}>
               <div className={styles.gradient}/>

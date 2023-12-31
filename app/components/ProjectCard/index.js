@@ -22,6 +22,13 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
   }
 
   const openProject = (projectId) => {
+    window.addEventListener('wheel', (event) => {
+      event.preventDefault();
+    });
+    document.addEventListener('touchmove', (event) => {
+      event.preventDefault();
+    });
+    
     handleScroll(projectId);
     onProjectOpen();
     setOpen(true);
@@ -118,7 +125,16 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
             translateY: translateProgress,
           }}
         >
-          <Image alt={e.name} ref={imgRef} src={require(`../../assets/images/projects/${i}/0.webp`)} className={styles.bg}/>
+          <Image 
+            priority={inner} 
+            placeholder='blur' 
+            sizes={'(max-width: 1600px) 80vw, 1500px'}
+            alt={e.name} 
+            ref={imgRef} 
+            src={require(`../../assets/images/projects/${i}/0.webp`)} 
+            className={styles.bg}
+            style={inner ? {overflow: 'auto'} : {}}
+          />
         </motion.div>
         {(open || inner) && 
           <button className={`${styles.back} ${styles.button}`} onClick={handleBack}>
