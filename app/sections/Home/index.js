@@ -11,6 +11,7 @@ import { Background } from './components/Background'
 import {motion} from 'framer-motion'
 import { useLastRoute } from '@/app/contexts/LastRouteProvider'
 import { useSmoothScroll } from '@/app/utils/useSmoothScroll'
+import { useLenisScroll } from '@/app/contexts/ScrollProvider'
 
 export const Home = () => {
   const fadeInAnchor = useRef();
@@ -19,7 +20,8 @@ export const Home = () => {
   isOffView = !isOffView;
   const [animate, setAnimate] = useState();
   const {lastRoute, setRoute} = useLastRoute();
-  useSmoothScroll();
+  const {setScroll} = useLenisScroll();
+  const lenis = useSmoothScroll();
 
   const {scrollYProgress} = useScroll({
     target: fadeInAnchor.current,
@@ -33,6 +35,10 @@ export const Home = () => {
   const handleScroll = () => {
     document.getElementById(work).scrollIntoView({ behavior: 'smooth' });
   }
+
+  useEffect(() => {
+    setScroll(lenis);
+  }, [lenis, setScroll])
 
   useEffect(() => {
     if (lastRoute !== '/') setRoute('/');

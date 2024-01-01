@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
-import { useScroll, useTransform, useVelocity } from 'framer-motion'
+import { useScroll, useTransform } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { motion } from "framer-motion"
 import { ProjectHeader } from '@/app/components/ProjectCard/components/ProjectHeader'
 import Lenis from '@studio-freight/lenis'
 import { useLastRoute } from '@/app/contexts/LastRouteProvider'
 import { useUI } from '@/app/contexts/UIProvider'
+import { useLenisScroll } from '@/app/contexts/ScrollProvider'
 
 export const ProjectCard = ({close, next, styles, children, onProjectOpen = () => null, e, i, inner, returnHome = () => null}) => {
   const imgRef = useRef(null)
@@ -17,21 +18,14 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
   const [open, setOpen] = useState(inner && (lastRoute === '/'));
   const [fadeIn, setFadeIn] = useState()
   const {hideUI} = useUI();
+  const {scroll} = useLenisScroll();
 
   const handleScroll = (projectId) => {
     document.getElementById(`work-${projectId}`).scrollIntoView({ behavior: 'smooth' });
   }
 
   const openProject = (projectId) => {
-    /*
-    window.addEventListener('wheel', (event) => {
-      event.preventDefault();
-    });
-    document.addEventListener('touchmove', (event) => {
-      event.preventDefault();
-    });
-    */
-
+    scroll.stop();
     handleScroll(projectId);
     onProjectOpen();
     hideUI(true);

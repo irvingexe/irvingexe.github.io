@@ -3,6 +3,7 @@ import './globals.css'
 import { darkerGrotesque, inter, notoSans } from './assets/fonts';
 import { LastRouteProvider } from './contexts/LastRouteProvider';
 import { UIProvider } from './contexts/UIProvider';
+import { ScrollProvider } from './contexts/ScrollProvider';
 
 export const metadata = {
   title: 'Irving Mariscales — Portfolio',
@@ -14,7 +15,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <LastRouteProvider>
         <UIProvider>
-          <body className={`${inter.className} ${darkerGrotesque.variable} ${notoSans.variable}`}>{children}</body>
+          <ScrollProvider>
+            <body className={`${inter.className} ${darkerGrotesque.variable} ${notoSans.variable}`}>{children}</body>
+          </ScrollProvider>
         </UIProvider>
       </LastRouteProvider>
     </html>

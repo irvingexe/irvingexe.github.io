@@ -1,12 +1,12 @@
 'use client'
 
 import Lenis from '@studio-freight/lenis'
-import React, { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 
 export const useSmoothScroll = () => {
+  let lenis = useMemo(() => new Lenis(), []);
 
   useEffect(() => {
-    const lenis = new Lenis()
 
     function raf(time) {
       lenis.raf(time)
@@ -14,7 +14,7 @@ export const useSmoothScroll = () => {
     }
 
     requestAnimationFrame(raf)
-  }, [])
+  }, [lenis])
 
-  return null
+  return lenis
 }
