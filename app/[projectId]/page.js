@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import projects from '../assets/projects';
 import App from '../page';
 import styles from './styles.module.scss'
@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { ProjectContent } from './components/ProjectContent';
 import { ProjectCard } from '../components/ProjectCard';
 import { useLastRoute } from '../contexts/LastRouteProvider';
+import { enablePageScroll } from 'scroll-lock';
 
 const Project = ({params}) => {
   const [close, setClose] = useState(false);
@@ -35,6 +36,11 @@ const Project = ({params}) => {
       }, 1000);
     }, 300);
   }
+
+  useEffect(() => {
+    enablePageScroll();
+  }, [])
+  
   
   if (!projects.get(params.projectId)) {
     return (<App/>);

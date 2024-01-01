@@ -8,6 +8,7 @@ import Lenis from '@studio-freight/lenis'
 import { useLastRoute } from '@/app/contexts/LastRouteProvider'
 import { useUI } from '@/app/contexts/UIProvider'
 import { useLenisScroll } from '@/app/contexts/ScrollProvider'
+import { disablePageScroll } from 'scroll-lock'
 
 export const ProjectCard = ({close, next, styles, children, onProjectOpen = () => null, e, i, inner, returnHome = () => null}) => {
   const imgRef = useRef(null)
@@ -26,6 +27,7 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
 
   const openProject = (projectId) => {
     scroll.stop();
+    disablePageScroll();
     handleScroll(projectId);
     onProjectOpen();
     hideUI(true);
@@ -33,6 +35,7 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
     setRoute(projectId);
     setTimeout(() => {
       document.getElementById(`work-${projectId}`).scrollIntoView({ behavior: 'smooth' });
+      document.querySelector('body').style.paddingRight = '0'
       setTimeout(() => {
         router.push(`${projectId}`);
       }, 1500);
@@ -114,7 +117,7 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
         <motion.div
           className={styles['bg-container']}
           style={{
-            translateY: translateProgress,
+            translateY: imgRef.current && translateProgress,
           }}
         >
           <Image 

@@ -296,8 +296,8 @@
 }
 
 #work.landing .project.open {
-  width: calc(min((100% + 10px) * 0.9, 90rem));
-  transform: translateX(5px) !important;
+  width: calc(min((100%) * 0.9, 90rem));
+  //transform: translateX(5px) !important;
 
   .card {
     clip-path: none !important;
@@ -316,11 +316,6 @@
       opacity: 1;
     }
   }
-}
-
-#work.close {
-  width: calc(100% - 10px);
-  transform: translateX(-5px) !important;
 }
 
 #work {
@@ -427,11 +422,32 @@
   .about-sub {
     grid-template-columns: 1fr 1fr;
   }
+
+  #work.close {
+    width: calc(100% - 10px);
+    transform: translateX(-5px) !important;
+  }
 }
 
 @media (max-width: 700px) {
   .project .card-content {
     padding-right: calc(min(4rem, 5vw));
+  }
+
+  #work.next {
+    width: min(100% * 0.8, 70rem);
+
+    .card {
+      height: 60vh;
+    }
+
+    .card-content {
+      animation: none;
+    }
+
+    .next-project .next-container {
+      height: 60vh;
+    }
   }
 }
 
