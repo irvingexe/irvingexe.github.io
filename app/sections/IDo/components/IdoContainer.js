@@ -25,7 +25,7 @@ export const IdoContainer = ({title, children, index, isInView, isOpen, setItemO
       initial='initial'
       animate={isInView ? 'animate' : 'initial'}
     >
-      <MotionDiv duration={.8} distance={(index + 1) * 10} isInView={isInView}>
+      <MotionDiv duration={.8} distance={(index + 1) * 10} delay={index * .1} isInView={isInView}>
         <div className={styles.title}>
           <h2>{title}</h2>
           <svg className={`${styles['img-plus']} ${isOpen && styles.open}`} width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">

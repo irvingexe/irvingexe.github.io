@@ -57,6 +57,7 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
       >
         <div className={styles['project-about']}>
           <ImgPlaceholder 
+            loading="lazy"
             sizes={'(max-width: 1000px) 100vw, (max-width: 1600px) 50vw, 550px'}
             noImage={noImages}
             alt={project.name}
