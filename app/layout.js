@@ -2,6 +2,7 @@ import 'normalize.css/normalize.css'
 import './globals.css'
 import { darkerGrotesque, inter, notoSans } from './assets/fonts';
 import { LastRouteProvider } from './contexts/LastRouteProvider';
+import { UIProvider } from './contexts/UIProvider';
 
 export const metadata = {
   title: 'Irving Mariscales — Portfolio',
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <LastRouteProvider>
-        <body className={`${inter.className} ${darkerGrotesque.variable} ${notoSans.variable}`}>{children}</body>
+        <UIProvider>
+          <body className={`${inter.className} ${darkerGrotesque.variable} ${notoSans.variable}`}>{children}</body>
+        </UIProvider>
       </LastRouteProvider>
     </html>
   )

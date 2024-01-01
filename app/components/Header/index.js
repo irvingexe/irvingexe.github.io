@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import {home} from '../../sections/Home/styles.module.scss'
@@ -6,11 +8,13 @@ import {who} from '../../sections/Who/styles.module.scss'
 import {contact} from '../../sections/Contact/styles.module.scss'
 import {ido} from '../../sections/IDo/styles.module.scss'
 import { Transition } from '../Transition'
+import { useUI } from '@/app/contexts/UIProvider'
 
-export const Header = ({hidden}) => {
+export const Header = () => {
   const [open, setOpen] = useState();
   const [playTransition, setPlayTransition] = useState(false);
   const [firstRender, setFirstRender] = useState(true);
+  const {isUIHidden} = useUI();
 
   const handleTransition = () => {
     setPlayTransition(true);
@@ -33,7 +37,7 @@ export const Header = ({hidden}) => {
     <>
       <div 
         id={styles.header} 
-        className={`${(hidden || firstRender) && styles.hidden} ${open && styles.open}`}
+        className={`${(isUIHidden || firstRender) && styles.hidden} ${open && styles.open}`}
       >
         <div className={styles['header-container']}>
           <div className={styles['header-content']}>

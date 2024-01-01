@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import styles from '../../[projectId]/styles.module.scss'
 import projects from '@/app/assets/projects';
@@ -5,11 +7,10 @@ import { MotionTitle } from '@/app/components/animationWraps/MotionTitle';
 import { ProjectCard } from '@/app/components/ProjectCard';
 import { ProjectContent } from '@/app/[projectId]/components/ProjectContent';
 
-export const Work = ({onProjectOpen}) => {
+export const Work = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
-    onProjectOpen();
     setOpen(true)
   }
   

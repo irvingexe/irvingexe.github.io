@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 import {work} from '../../[projectId]/styles.module.scss'
@@ -7,6 +9,8 @@ import { MotionDiv } from '@/app/components/animationWraps/MotionDiv'
 import { useInView, useScroll, useTransform } from 'framer-motion'
 import { Background } from './components/Background'
 import {motion} from 'framer-motion'
+import { useLastRoute } from '@/app/contexts/LastRouteProvider'
+import { useSmoothScroll } from '@/app/utils/useSmoothScroll'
 
 export const Home = () => {
   const fadeInAnchor = useRef();
@@ -14,6 +18,8 @@ export const Home = () => {
   let isOffView = useInView(fadeInAnchor, {margin: "-10% 0% -10% 0%"});
   isOffView = !isOffView;
   const [animate, setAnimate] = useState();
+  const {setRoute} = useLastRoute();
+  useSmoothScroll();
 
   const {scrollYProgress} = useScroll({
     target: fadeInAnchor.current,
@@ -27,6 +33,10 @@ export const Home = () => {
   const handleScroll = () => {
     document.getElementById(work).scrollIntoView({ behavior: 'smooth' });
   }
+
+  useEffect(() => {
+    setRoute('/');
+  }, [setRoute])
   
   useEffect(() => {
     if (isInView && !animate) {
