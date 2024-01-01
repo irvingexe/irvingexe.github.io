@@ -3,14 +3,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useScroll, useTransform } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { motion } from "framer-motion"
-import { ProjectHeader } from '@/app/components/ProjectCard/components/ProjectHeader'
+import { ProjectHeader } from '@/app/components/ProjectContainer/components/ProjectHeader'
 import Lenis from '@studio-freight/lenis'
 import { useLastRoute } from '@/app/contexts/LastRouteProvider'
 import { useUI } from '@/app/contexts/UIProvider'
 import { useLenisScroll } from '@/app/contexts/ScrollProvider'
 import { disablePageScroll } from 'scroll-lock'
 
-export const ProjectCard = ({close, next, styles, children, onProjectOpen = () => null, e, i, inner, returnHome = () => null}) => {
+export const ProjectCard = ({close, next, scrollNext, styles, children, onProjectOpen = () => null, e, i, inner, returnHome = () => null}) => {
   const imgRef = useRef(null)
   const router = useRouter();
   const scrollContainer = useRef();
@@ -79,8 +79,8 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
   }, [])
 
   useEffect(() => {
-    if (next) scrollContainer.current.scrollIntoView({ block: "end", behavior: 'smooth' });
-  }, [next])
+    if (scrollNext) scrollContainer.current.scrollIntoView({ block: "end", behavior: 'smooth' });
+  }, [scrollNext])
 
   useEffect(() => {
     if (inner) {
@@ -103,7 +103,11 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
   }, [inner])
   
   return (
-    <motion.div ref={imgRef}  key={i} id={`work-${e.route}`} className={`${inner && styles.inner} ${styles.project} ${close && styles.close} ${open && styles.open}`}>
+    <motion.div 
+      ref={imgRef}  
+      key={i} id={`work-${e.route}`} 
+      className={`${inner && styles.inner} ${styles.project} ${close && styles.close} ${open && styles.open} ${next && styles.next}`}
+    >
       <motion.div 
         className={styles.card} 
         onClick={() => {if (!inner) openProject(e.route)}}
@@ -125,7 +129,7 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
             placeholder='blur' 
             sizes={'(max-width: 1600px) 80vw, 1500px'}
             alt={e.name} 
-            src={require(`../../assets/images/projects/${i}/0.webp`)} 
+            src={require(`../../../assets/images/projects/${i}/0.webp`)} 
             className={styles.bg}
             style={inner ? {overflow: 'auto'} : {}}
           />

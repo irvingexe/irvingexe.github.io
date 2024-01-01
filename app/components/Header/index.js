@@ -3,12 +3,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import {home} from '../../sections/Home/styles.module.scss'
-import {work} from '../../[projectId]/styles.module.scss'
+import work from '../../components/ProjectContainer/styles.module.scss'
 import {who} from '../../sections/Who/styles.module.scss'
 import {contact} from '../../sections/Contact/styles.module.scss'
 import {ido} from '../../sections/IDo/styles.module.scss'
 import { Transition } from '../Transition'
 import { useUI } from '@/app/contexts/UIProvider'
+const projectContainer = work['project-container']
 
 export const Header = () => {
   const [open, setOpen] = useState();
@@ -50,7 +51,7 @@ export const Header = () => {
             </div>
             <div className={`${styles['mobile-item']} a`} onClick={() => handleScroll(contact)}>Contact</div>
             <div className={`${styles['header-center']} ${styles['desktop-item']}`}>
-              <div className='a' onClick={() => handleScroll(work)}>Work</div>
+              <div className='a' onClick={() => handleScroll(projectContainer)}>Work</div>
               <div className='a' onClick={() => handleScroll(ido)}>I do</div>
               <div className='a' onClick={() => handleScroll(who)}>Who</div>
             </div>

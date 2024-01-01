@@ -3,12 +3,13 @@
 import React, { useEffect, useState } from 'react'
 import projects from '../assets/projects';
 import App from '../page';
-import styles from './styles.module.scss'
+import styles from '../components/ProjectContainer/styles.module.scss'
 import { useRouter } from 'next/navigation';
-import { ProjectContent } from './components/ProjectContent';
-import { ProjectCard } from '../components/ProjectCard';
+import { ProjectContent } from '../components/ProjectContainer/components/ProjectContent';
+import { ProjectCard } from '../components/ProjectContainer/components/ProjectCard';
 import { useLastRoute } from '../contexts/LastRouteProvider';
 import { enablePageScroll } from 'scroll-lock';
+import { ProjectContainer } from '../components/ProjectContainer';
 
 const Project = ({params}) => {
   const [close, setClose] = useState(false);
@@ -47,8 +48,17 @@ const Project = ({params}) => {
   }
 
   return (
-    <div id={styles.work} className={`${close && styles.close} ${next && styles.next}`}>
-      <ProjectCard styles={styles} i={project.index - 1} e={project} close={close} inner={true} returnHome={returnHome} next={scrollNext}>
+    <ProjectContainer inner={true}>
+      <ProjectCard 
+        styles={styles} 
+        i={project.index - 1} 
+        e={project} 
+        close={close} 
+        inner={true} 
+        returnHome={returnHome} 
+        scrollNext={scrollNext}
+        next={next}
+      >
         <ProjectContent 
           project={project} 
           nextImg={require(`../assets/images/projects/${project.nextIndex-1}/0.webp`)}
@@ -57,7 +67,7 @@ const Project = ({params}) => {
           animate={false}
         />
       </ProjectCard>
-    </div>
+    </ProjectContainer>
   )
 }
 

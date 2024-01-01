@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../../[projectId]/styles.module.scss'
+import styles from '../styles.module.scss'
 
 export const ProjectHeader = ({project}) => {
   return (

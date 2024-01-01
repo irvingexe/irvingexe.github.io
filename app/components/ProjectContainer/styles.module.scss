@@ -1,4 +1,146 @@
-@import '../sections/Work/styles.module.scss';
+#project-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.project {
+  width: min(80%, 70rem);
+  margin: auto;
+  padding-top: 4rem;
+  min-height: 100vh;
+  display: flex;
+}
+
+.card {
+  width: 100%;
+  height: 70vh;
+  margin: auto;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: #D2D2D2 !important;
+  transition: cubic-bezier(0.65, 0, 0.35, 1) 0.3s;
+
+  .bg-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg {
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    transition: cubic-bezier(0.430, 0.005, 0.000, 1.000) 1.5s;
+  }
+
+  .number {
+    transition: cubic-bezier(0.65, 0, 0.35, 1) 0.5s;
+    color: #D2D2D2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: min(2rem, 5vw) min(4rem, 5vw);
+    font-size: 78px;
+    letter-spacing: 7px;
+    line-height: 1em;
+    z-index: 20;
+    font-weight: bolder;
+    font-family: var(--noto-sans);
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 20%;
+      top: 20%;
+      width: 60%;
+      height: 80%;
+      background: #00000098;
+      z-index: -1;
+      filter: blur(40px);
+    }
+  }
+
+  &:active {
+    transform: scale(.98);
+  }
+
+  &:hover .bg {
+    transform: scale(1.03);
+  }
+
+  @keyframes blur {
+    0% {
+      filter: blur(0px)
+    }
+
+    50% {
+      filter: blur(5px)
+    }
+
+    100% {
+      filter: blur(0px)
+    }
+  }
+}
+
+.blur {
+  overflow: auto;
+}
+
+.gradient {
+  width: 100%;
+  height: 20rem;
+  background: linear-gradient(180deg, #0F100F 0%, rgba(15, 16, 15, 0.83) 48.54%, rgba(34, 37, 34, 0.00) 100%);
+  position: absolute;
+  top: 0;
+}
+
+.card-content {
+  height: 100%;
+  padding: 2rem min(4rem, 5vw) 4rem min(4rem, 5vw);
+}
+
+.desc {
+  color: #AEAEAE;
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 500;
+  color: #D2D2D2;
+}
+
+.roles {
+  display: flex;
+  color: #AEAEAE;
+  font-size: 14px;
+  gap: 0.7em;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.role {
+  background-color: rgba(255, 255, 255, 0.07);
+  padding: 0.3em 0.6em;
+  border-radius: 8px;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 700px) {
+  .card {
+    height: 60vh;
+
+    .blur {
+      overflow: hidden;
+    }
+  }
+}
 
 .button {
   background: rgb(68 68 68 / 70%);
@@ -8,7 +150,7 @@
   transform: none;
 }
 
-#work {
+#project-container {
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
 }
 
@@ -244,16 +386,6 @@
   }
 }
 
-#work.spring {
-  transition: cubic-bezier(0.65, 0, 0.35, 0.95) 0.7s;
-  transform: scale(0.85);
-}
-
-.project.spring {
-  transition: cubic-bezier(0.65, 0, 0.35, 0.95) 0.7s;
-  transform: scale(0.85);
-}
-
 .project.open {
   padding-top: 2rem;
   width: min(90%, 90rem);
@@ -295,7 +427,7 @@
   }
 }
 
-#work.landing .project.open {
+#project-container.landing .project.open {
   width: calc(min((100%) * 0.9, 90rem));
   //transform: translateX(5px) !important;
 
@@ -318,7 +450,7 @@
   }
 }
 
-#work {
+#project-container {
   .next-title {
     height: 22px;
   }
@@ -326,14 +458,11 @@
   margin: auto;
 }
 
-#work.next {
+.project.next {
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
   width: min((100% - 10px) * 0.8, 70rem);
-
-  .project {
-    padding-top: 4rem;
-    width: 100%;
-  }
+  width: min((80% - 10px), 70rem);
+  padding-top: 4rem;
 
   .card {
     transition: cubic-bezier(0.65, 0, 0.35, 1) 0.8s;
@@ -423,8 +552,7 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  #work.close {
-    width: calc(100% - 10px);
+  .project.close {
     transform: translateX(-5px) !important;
   }
 }
@@ -434,8 +562,9 @@
     padding-right: min(4rem, 5vw);
   }
 
-  #work.next {
+  .project.next {
     width: min(100% * 0.8, 70rem);
+    width: min(80%, 70rem);
 
     .card {
       height: 60vh;

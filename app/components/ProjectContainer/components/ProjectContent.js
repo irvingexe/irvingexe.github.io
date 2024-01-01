@@ -1,7 +1,7 @@
 
 import React from 'react'
 import styles from '../styles.module.scss'
-import { ProjectHeader } from '../../components/ProjectCard/components/ProjectHeader'
+import { ProjectHeader } from './ProjectHeader'
 import { MotionP } from '@/app/components/animationWraps/MotionP'
 import { MotionDiv } from '@/app/components/animationWraps/MotionDiv'
 import {motion} from 'framer-motion'
@@ -61,7 +61,7 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
             sizes={'(max-width: 1000px) 100vw, (max-width: 1600px) 50vw, 550px'}
             noImage={noImages}
             alt={project.name}
-            src={require(`../../assets/images/projects/${project.index-1}/1.webp`)}
+            src={require(`../../../assets/images/projects/${project.index-1}/1.webp`)}
             className={styles['first-image']}
           />
           <div className={styles['about-content']}>
@@ -90,7 +90,7 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
           <ImgPlaceholder 
             noImage={noImages} 
             alt={project.name} 
-            src={require(`../../assets/images/projects/${project.index-1}/2.webp`)}
+            src={require(`../../../assets/images/projects/${project.index-1}/2.webp`)}
             sizes={'(max-width: 1600px) 100vw, 1500px'}
           />
         </div>

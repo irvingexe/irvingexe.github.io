@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
-import {work} from '../../[projectId]/styles.module.scss'
+import work from '../../components/ProjectContainer/styles.module.scss'
 import { MotionP } from '@/app/components/animationWraps/MotionP'
 import { MotionTitle } from '@/app/components/animationWraps/MotionTitle'
 import { MotionDiv } from '@/app/components/animationWraps/MotionDiv'
@@ -12,6 +12,7 @@ import {motion} from 'framer-motion'
 import { useLastRoute } from '@/app/contexts/LastRouteProvider'
 import { useSmoothScroll } from '@/app/utils/useSmoothScroll'
 import { useLenisScroll } from '@/app/contexts/ScrollProvider'
+const projectContainer = work['project-container']
 
 export const Home = () => {
   const fadeInAnchor = useRef();
@@ -33,7 +34,7 @@ export const Home = () => {
   const translateScroll = useTransform(scrollYProgress, [0, 1], [200, -2000])
 
   const handleScroll = () => {
-    document.getElementById(work).scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(projectContainer).scrollIntoView({ behavior: 'smooth' });
   }
 
   useEffect(() => {
