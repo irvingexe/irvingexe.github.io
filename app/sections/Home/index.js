@@ -18,7 +18,7 @@ export const Home = () => {
   let isOffView = useInView(fadeInAnchor, {margin: "-10% 0% -10% 0%"});
   isOffView = !isOffView;
   const [animate, setAnimate] = useState();
-  const {setRoute} = useLastRoute();
+  const {lastRoute, setRoute} = useLastRoute();
   useSmoothScroll();
 
   const {scrollYProgress} = useScroll({
@@ -35,8 +35,8 @@ export const Home = () => {
   }
 
   useEffect(() => {
-    setRoute('/');
-  }, [setRoute])
+    if (lastRoute !== '/') setRoute('/');
+  }, [setRoute, lastRoute])
   
   useEffect(() => {
     if (isInView && !animate) {

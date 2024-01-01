@@ -36,10 +36,10 @@ export const ProjectCard = ({close, next, styles, children, onProjectOpen = () =
     onProjectOpen();
     hideUI(true);
     setOpen(true);
+    setRoute(projectId);
     setTimeout(() => {
       document.getElementById(`work-${projectId}`).scrollIntoView({ behavior: 'smooth' });
       setTimeout(() => {
-        setRoute(projectId);
         router.push(`${projectId}`);
       }, 1500);
     }, 500);
