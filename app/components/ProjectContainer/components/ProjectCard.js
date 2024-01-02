@@ -106,7 +106,7 @@ export const ProjectCard = ({close, next, scrollNext, styles, children, onProjec
     <motion.div 
       ref={imgRef}  
       key={i} id={`work-${e.route}`} 
-      className={`${inner && styles.inner} ${styles.project} ${close && styles.close} ${open && styles.open} ${next && styles.next}`}
+      className={`${inner ? styles.inner : ''} ${styles.project} ${close ? styles.close : ''} ${open ? styles.open : ''} ${next ? styles.next : ''}`}
     >
       <motion.div 
         className={styles.card} 

@@ -38,7 +38,7 @@ export const Header = () => {
     <>
       <div 
         id={styles.header} 
-        className={`${(isUIHidden || firstRender) && styles.hidden} ${open && styles.open}`}
+        className={`${(isUIHidden || firstRender) ? styles.hidden : ''} ${open ? styles.open : ''}`}
       >
         <div className={styles['header-container']}>
           <div className={styles['header-content']}>

@@ -32,7 +32,7 @@ export const Contact = () => {
     <div id={styles.contact} ref={fadeInAnchor}>
       <div>
         <h2 className={styles['form-title']}><MotionTitle isInView={animate}>{"Let's Talk"}</MotionTitle></h2>
-        <form className={`relative ${styles.form} ${state.succeeded && styles.disabled}`} onSubmit={onSubmit}>
+        <form className={`relative ${styles.form} ${state.succeeded ? styles.disabled : ''}`} onSubmit={onSubmit}>
           <div className={`absolute w-full flex flex-col ${styles.sent}`}>
             <h2 className={styles['thanks']}>
               <MotionTitle delay={1.2} isInView={animate && state.succeeded}>
@@ -77,7 +77,7 @@ export const Contact = () => {
             />
           </MotionDiv>
           <MotionDiv delay={0.7} isInView={animate && !state.succeeded}>
-            <button type='submit' disabled={state.submitting} className={`${styles.submit} ${state.submitting && styles.submitting}`}>
+            <button type='submit' disabled={state.submitting} className={`${styles.submit} ${state.submitting ? styles.submitting : ''}`}>
               <div className={`${styles.loading} relative`}><div className="lds-dual-ring"/></div>
               <div>SEND</div>
             </button>
