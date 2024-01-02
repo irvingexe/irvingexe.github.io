@@ -11,12 +11,13 @@ import { useLastRoute } from '../../contexts/LastRouteProvider';
 import { enablePageScroll } from 'scroll-lock';
 import { ProjectContainer } from '../../components/ProjectContainer';
 
-const ProjectDetail = ({ projectId, project }) => {
+const ProjectDetail = ({ projectId }) => {
   const [close, setClose] = useState(false);
   const [next, setNext] = useState(false);
   const [scrollNext, setScrollNext] = useState(false);
   const router = useRouter();
   const {setRoute} = useLastRoute();
+  const project = projects.get(projectId);
 
   const returnHome = () => {
     setClose(true);
@@ -40,7 +41,6 @@ const ProjectDetail = ({ projectId, project }) => {
   useEffect(() => {
     enablePageScroll();
   }, [])
-  
   
   if (!projects.get(projectId)) {
     return (<App/>);

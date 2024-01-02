@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /ARt
+Allow: /formula1
+Allow: /aladin
+Allow: /cartoober
+Allow: /lgds
+Allow: /profuturo

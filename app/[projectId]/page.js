@@ -3,24 +3,25 @@ import projects from '../assets/projects';
 import ProjectDetail from './components/ProjectDetail';
 
 export const getStaticPaths = async () => {
-  const paths = Array.from(projects.keys()).map(key => `/${key}`);
+  const paths = [
+    ...Array.from(projects.keys()).map((key) => ({ params: { projectId: key } })),
+    { params: { projectId: 'robots.txt' } },
+  ];
   return {
     paths,
-    fallback: true, // Allow dynamic generation for unknown project IDs
+    fallback: true,
   };
 };
 
 export const generateStaticParams = async ({ params }) => {
-  const projectId = params.projectId;
-  const project = projects.get(projectId);
+  const projectId = params.projectId || 'robots.txt';
   return {
     projectId,
-    project,
   };
 };
 
-const Project = ({projectId, project}) => {
-  return <ProjectDetail {...projectId} {...project}/>
+const Project = ({params}) => {
+  return <ProjectDetail projectId={params.projectId} project={params.project}/>
 }
 
 export default Project;
