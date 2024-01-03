@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../components/ProjectContainer/styles.module.scss'
 import projects from '@/app/assets/projects';
 import { MotionTitle } from '@/app/components/animationWraps/MotionTitle';
@@ -10,16 +10,21 @@ import { ProjectContainer } from '@/app/components/ProjectContainer';
 
 export const Work = () => {
   const [open, setOpen] = useState(false);
+  const [isClient, setClient] = useState(null);
 
   const handleOpen = () => {
     setOpen(true)
   }
+
+  useEffect(() => {
+    setClient(true)
+  }, [])
   
   return (
     <ProjectContainer>
       <div className={`items-center ${styles.project}`} style={{minHeight: '80vh'}}>
         <h2 className='leading-none'>
-          <MotionTitle>{`Selected${((typeof window !== 'undefined') && (window.innerWidth < 600)) ? '\n' : ' '}work`}</MotionTitle>
+          {isClient && <MotionTitle>{`Selected${(window.innerWidth < 600) ? '\n' : ' '}work`}</MotionTitle>}
         </h2>
       </div>
       {[...projects.values()].map((e, i) => (
