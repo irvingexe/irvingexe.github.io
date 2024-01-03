@@ -26,7 +26,7 @@ export const Work = () => {
         <ProjectCard styles={styles} key={i} onProjectOpen={handleOpen} e={e} i={i}>
           {open && <ProjectContent
             project={e} 
-            nextImg={require(`../../assets/images/projects/${e.nextIndex-1}/0.webp`)}
+            nextImg={`portfolio/projects/${e.nextIndex-1}/0`}
             nextProject={projects.get(e.next)}
             animate={true}
             noImages={true}

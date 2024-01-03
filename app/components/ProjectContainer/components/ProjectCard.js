@@ -9,6 +9,7 @@ import { useLastRoute } from '@/app/contexts/LastRouteProvider'
 import { useUI } from '@/app/contexts/UIProvider'
 import { useLenisScroll } from '@/app/contexts/ScrollProvider'
 import { disablePageScroll } from 'scroll-lock'
+import { CldImage } from 'next-cloudinary'
 
 export const ProjectCard = ({close, next, scrollNext, styles, children, onProjectOpen = () => null, e, i, inner, returnHome = () => null}) => {
   const imgRef = useRef(null)
@@ -20,6 +21,7 @@ export const ProjectCard = ({close, next, scrollNext, styles, children, onProjec
   const [fadeIn, setFadeIn] = useState()
   const {hideUI} = useUI();
   const {scroll} = useLenisScroll();
+  const [isClient, setClient] = useState(null);
 
   const handleScroll = (projectId) => {
     document.getElementById(`work-${projectId}`).scrollIntoView({ behavior: 'smooth' });
@@ -70,7 +72,11 @@ export const ProjectCard = ({close, next, scrollNext, styles, children, onProjec
     offset: ['0 1', '1 0']
   })
 
-  const translateProgress = useTransform(scrollYProgress, [0, 1], [-100, 100])
+  const translateProgress = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+
+  useEffect(() => {
+    setClient(true);
+  }, [setClient])
   
   useEffect(() => {
     setTimeout(() => {
@@ -124,15 +130,22 @@ export const ProjectCard = ({close, next, scrollNext, styles, children, onProjec
             translateY: imgRef.current && translateProgress,
           }}
         >
-          <Image 
+        {isClient && 
+          <CldImage 
             priority={inner} 
-            placeholder='blur' 
-            sizes={'(max-width: 1600px) 80vw, 1500px'}
             alt={e.name} 
-            src={require(`../../../assets/images/projects/${i}/0.webp`)} 
+            src={`portfolio/projects/${i}/cover`} 
             className={styles.bg}
             style={inner ? {overflow: 'auto'} : {}}
+            width={window.innerWidth < 600
+                    ? window.innerWidth * 2 
+                    : (window.innerWidth < 1600
+                      ? window.innerWidth * 1.1 
+                      : 1500)}
+            height={window.innerHeight * .7}
+            sizes={'(max-width: 1600px) 80vw, 1500px'}
           />
+        }
         </motion.div>
         {(open || inner) && 
           <button className={`${styles.back} ${styles.button}`} onClick={() => inner && handleBack()} >

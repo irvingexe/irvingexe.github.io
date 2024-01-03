@@ -8,6 +8,7 @@ import meRound from '../../assets/images/meRound.webp'
 import { MotionTitle } from '@/app/components/animationWraps/MotionTitle'
 import {motion, useInView} from 'framer-motion'
 import { MotionP } from '@/app/components/animationWraps/MotionP'
+import { CldImage } from 'next-cloudinary'
 
 export const Who = () => {
   const fadeInAnchor = useRef();
@@ -77,12 +78,13 @@ export const Who = () => {
             initial={'initial'}
             animate={animate ? 'animate' : 'initial'}
           >
-            <Image 
+            <CldImage 
+              src='portfolio/me'
+              width={350}
+              height={500}
+              sizes={'(max-width: 1500px) 40vw, 350px'}
               className={styles['img-main']} 
               alt='Irving Mariscales' 
-              src={me}
-              placeholder='blur' 
-              sizes={'(max-width: 1500px) 40vw, 350px'}
             />
           </motion.div>
         </motion.div>
@@ -96,12 +98,13 @@ export const Who = () => {
               animate={animate ? 'animate' : 'initial'}
               className='w-fit max-h-24'
             >
-              <Image 
+              <CldImage 
+                src='portfolio/meRound'
+                width={200}
+                height={200}
                 className={styles['img-mobile']} 
                 alt='Irving Mariscales' 
-                src={meRound}
-                placeholder='blur' 
-                sizes={'30vw'}
+                sizes={'50vw'}
               />
             </motion.div>
           </div>

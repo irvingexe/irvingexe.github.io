@@ -60,7 +60,7 @@ const ProjectDetail = ({ projectId }) => {
       >
         <ProjectContent 
           project={project} 
-          nextImg={require(`../../assets/images/projects/${project.nextIndex-1}/0.webp`)}
+          nextImg={`portfolio/projects/${project.nextIndex-1}/cover`}
           nextProject={projects.get(project.next)}
           next={handleNext}
           animate={false}

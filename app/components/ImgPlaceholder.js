@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary';
 import React, { useState } from 'react'
 
 export const ImgPlaceholder = (props) => {
@@ -8,7 +8,7 @@ export const ImgPlaceholder = (props) => {
   return (
     <div className={`w-full h-full ${!loaded ? 'animate-pulse' : ''}`} style={loaded ? {backdropFilter: 'none', background: 'none'} : {}}>
       {!props.noImage && 
-        <Image 
+        <CldImage 
           alt='' 
           {...newProps} 
           onLoad={() => setLoaded(true)} 

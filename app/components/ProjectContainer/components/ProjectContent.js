@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles.module.scss'
 import { ProjectHeader } from './ProjectHeader'
 import { MotionP } from '@/app/components/animationWraps/MotionP'
@@ -9,6 +9,8 @@ import { MotionTitle } from '@/app/components/animationWraps/MotionTitle'
 import { ImgPlaceholder } from '@/app/components/ImgPlaceholder'
 
 export const ProjectContent = ({noImages, animate, project, nextImg, nextProject, next = () => null}) => {
+  const [isClient, setClient] = useState(null);
+
   const fadeInAnimation = {
     initial: {
       transform: 'scale(1.1)',
@@ -30,6 +32,10 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
       transform: 'translateY(0)'
     }
   }
+
+  useEffect(() => {
+    setClient(true);
+  }, [setClient])
 
   return (
     <div className={styles['project-detail']}>
@@ -56,14 +62,22 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
         animate={animate && 'animate'}
       >
         <div className={styles['project-about']}>
-          <ImgPlaceholder 
-            loading="lazy"
-            sizes={'(max-width: 1000px) 100vw, (max-width: 1600px) 50vw, 550px'}
-            noImage={noImages}
-            alt={project.name}
-            src={require(`../../../assets/images/projects/${project.index-1}/1.webp`)}
-            className={styles['first-image']}
-          />
+          {isClient && 
+            <ImgPlaceholder 
+              loading="lazy"
+              sizes={'(max-width: 1000px) 100vw, (max-width: 1600px) 50vw, 550px'}
+              noImage={noImages}
+              alt={project.name}
+              src={`portfolio/projects/${project.index-1}/1`}
+              className={styles['first-image']}
+              width={window.innerWidth < 600
+                      ? window.innerWidth * 2 
+                      : (window.innerWidth < 1600
+                        ? window.innerWidth * 1.2
+                        : 1500)}
+              height={window.innerWidth * .5}
+            />
+          }
           <div className={styles['about-content']}>
             <div className={styles.about}>
               <h3>About</h3>
@@ -87,12 +101,20 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
           </div>
         </div>
         <div className={styles['project-image']}>
-          <ImgPlaceholder 
-            noImage={noImages} 
-            alt={project.name} 
-            src={require(`../../../assets/images/projects/${project.index-1}/2.webp`)}
-            sizes={'(max-width: 1600px) 100vw, 1500px'}
-          />
+          {isClient && 
+            <ImgPlaceholder 
+              noImage={noImages} 
+              alt={project.name} 
+              src={`portfolio/projects/${project.index-1}/2`}
+              sizes={'(max-width: 1600px) 10vw, 1500px'}
+              width={window.innerWidth < 600
+                      ? window.innerWidth * 2 
+                      : (window.innerWidth < 1600
+                        ? window.innerWidth * 1.2
+                        : 1500)}
+              height={window.innerWidth}
+            />
+          }
         </div>
         <div className={styles['next-project']}>
           <div className={styles['next-title']}><h3><MotionTitle>Next work</MotionTitle></h3></div>
@@ -104,12 +126,20 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
               whileInView='animate'
               transition={{duration: .5}}
             >
+            {isClient && 
               <ImgPlaceholder 
                 noImage={noImages} 
                 alt='Next' 
                 src={nextImg}
                 sizes={'(max-width: 1600px) 100vw, 1500px'}
+                width={window.innerWidth < 600
+                        ? window.innerWidth * 2 
+                        : (window.innerWidth < 1600
+                          ? window.innerWidth * 1.2
+                          : 1500)}
+                height={window.innerWidth * .5}
               />
+            }
             </motion.div>
             <div className={styles['next-name']}>
               <div className={styles.gradient}/>
