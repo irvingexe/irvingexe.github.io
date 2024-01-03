@@ -67,7 +67,7 @@ export const Header = () => {
           </div>
           <div className={styles['header-mobile']}>
             <div className='a' onClick={() => handleScroll(home)}>Home</div>
-            <div className='a' onClick={() => handleScroll(work)}>Work</div>
+            <div className='a' onClick={() => handleScroll(projectContainer)}>Work</div>
             <div className='a' onClick={() => handleScroll(ido)}>I do</div>
             <div className='a' onClick={() => handleScroll(who)}>Who</div>
           </div>
