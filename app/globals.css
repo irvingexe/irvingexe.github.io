@@ -266,3 +266,15 @@ h4 {
 .anim-p.go:after {
   height: 0%;
 }
+
+@media (max-width: 700px) {
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #393939;
+    border-radius: 2px;
+  }
+}

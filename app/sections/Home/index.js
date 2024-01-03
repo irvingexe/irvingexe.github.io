@@ -21,7 +21,7 @@ export const Home = () => {
   isOffView = !isOffView;
   const [animate, setAnimate] = useState();
   const {lastRoute, setRoute} = useLastRoute();
-  const {setScroll} = useLenisScroll();
+  const {scroll, setScroll} = useLenisScroll();
   const lenis = useSmoothScroll();
 
   const {scrollYProgress} = useScroll({
@@ -38,8 +38,12 @@ export const Home = () => {
   }
 
   useEffect(() => {
-    setScroll(lenis);
-  }, [lenis, setScroll])
+    if (!scroll) setScroll(lenis);
+  }, [lenis, setScroll, scroll])
+
+  useEffect(() => {
+    if (scroll) scroll.start();
+  }, [scroll])
 
   useEffect(() => {
     if (lastRoute !== '/') setRoute('/');
