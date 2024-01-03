@@ -42,7 +42,7 @@ const ProjectDetail = ({ projectId }) => {
     enablePageScroll();
   }, [])
   
-  if (!projects.get(projectId)) {
+  if (!projects.has(projectId)) {
     return (<App/>);
   }
 
