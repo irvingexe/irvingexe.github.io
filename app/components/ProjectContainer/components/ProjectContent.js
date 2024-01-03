@@ -41,7 +41,7 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
     <div className={styles['project-detail']}>
       <div className={styles['project-desc']}>
         <MotionP delay={1} once={true} animate={animate}><p>{project.description}</p></MotionP>
-        <div className={`w-fit ${styles['website-btn']}`}>
+        {project.URL && <div className={`w-fit ${styles['website-btn']}`}>
           <MotionDiv delay={1.3} once={true} animate={animate}>
             <a href={project.URL} target="_">
               <button className={styles.button}>
@@ -52,7 +52,7 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
               </button>
             </a>
           </MotionDiv>
-        </div>
+        </div>}
       </div>
       <motion.div 
         className={styles['detail-container']}
@@ -72,9 +72,11 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
               className={styles['first-image']}
               width={window.innerWidth < 600
                       ? window.innerWidth * 2 
-                      : (window.innerWidth < 1600
+                      : (window.innerWidth < 1000
                         ? window.innerWidth * 1.2
-                        : 1500)}
+                        : (window.innerWidth < 1600
+                          ? window.innerWidth * .5
+                          : 600))}
               height={window.innerWidth * .5}
             />
           }

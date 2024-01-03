@@ -2,9 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
-import Image from 'next/image'
-import me from '../../assets/images/me.webp'
-import meRound from '../../assets/images/meRound.webp'
 import { MotionTitle } from '@/app/components/animationWraps/MotionTitle'
 import {motion, useInView} from 'framer-motion'
 import { MotionP } from '@/app/components/animationWraps/MotionP'

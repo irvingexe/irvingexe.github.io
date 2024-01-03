@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { useScroll, useTransform } from 'framer-motion'
 import { useRouter } from 'next/navigation'

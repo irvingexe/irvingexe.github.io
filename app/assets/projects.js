@@ -9,13 +9,13 @@ const projects = new Map([
     team: 'Alucina Studio',
     teamURL: 'https://alucinastudio.com/',
     about: 'The purpose of the renewal was to enhance the interactive aspects of the box office so people can have a better look to the new areas and aminities in the Mexico City racetrack.\n\nThe renewal involved new sections, including a full live coverage of the event, and with this create a more attractive experience to incentivize people to join the event and follow up the celebration.',
-    next: 'aladin',
+    next: 'aladdin',
     URL: 'https://www.mexicogp.mx/cobertura-2022/',
     index: 1,
     nextIndex: 2
   }],
-  ['aladin', {
-    route: 'aladin',
+  ['aladdin', {
+    route: 'aladdin',
     name: 'Aladdin',
     subtitle: 'Marketing & Advertising',
     description: 'Aladdin Broadway musical website.\n\nA digital platform for the show that allows people to learn about the show. Additionally, it provides a convenient way for people to check the show program and purchase tickets online.',
