@@ -7,6 +7,7 @@ import { ScrollProvider } from './contexts/ScrollProvider';
 
 const title = 'Irving Mariscales — Portfolio';
 const description = 'I am a Front End Developer with a taste for design and interactivity. This is my web portfolio, here I present some of my experiences, feel free to take a look.';
+const url = 'https://www.irving.work';
 
 export const metadata = {
   title: title,
@@ -14,7 +15,7 @@ export const metadata = {
   openGraph: {
     title: title,
     description: description,
-    url: 'https://www.irving.work',
+    url: url,
     siteName: 'Irving Mariscales',
     images: [
       {
@@ -26,12 +27,12 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    url: 'https://www.irving.work',
+    url: url,
     title: title,
     description: description,
     image: '/thumbnail.jpg',
   },
-  metadataBase: 'https://www.irving.work',
+  metadataBase: url,
 };
 
 export default function RootLayout({ children }) {
