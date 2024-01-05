@@ -5,10 +5,12 @@ import { Home } from "./sections/Home";
 import { IDo } from "./sections/IDo";
 import { Who } from "./sections/Who";
 import { Work } from "./sections/Work";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export default function App() {
   return (
-    <div className="App">
+      <div className="App">
+      <GoogleAnalytics/>
       <Header/>
       <Home/>
       <Work/>
