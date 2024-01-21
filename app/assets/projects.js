@@ -39,14 +39,14 @@ const projects = new Map([
     team: 'Alucina Studio',
     teamURL: 'https://alucinastudio.com/',
     about: 'For new content creators, the main obstacle to begin in the streaming industry is not having the best equipment. Cartober aims to simplify streaming video creation for new content creators by providing virtual avatars as a solution to the obstacle of lacking the best equipment.\n\nCartoober is the result of combining cutting-edge technologies like React for building a scalable and flexible front-end, Pixi.js, a 2D rendering engine, to create high-performance graphics and animations, Tensorflow, a machine learning library, for realistic facial expressions and movements for the virtual avatars, and RTMP communication to ensure real-time communication between the platform and viewers, providing the posibility to stream to multiple social media platforms like YouTube and Facebook.',
-    next: 'sashimiswift',
+    next: 'laguarida',
     URL: 'https://www.cartoober.com/',
     index: 3,
     nextIndex: 4
   }],
-  ['sashimiswift', {
-    route: 'sashimiswift',
-    name: 'Sashimi Swift',
+  ['laguarida', {
+    route: 'laguarida',
+    name: 'La Guarida',
     subtitle: 'Sales Management',
     description: 'POS software for efficient sales management experience.\n\nTo eliminate the overwhelm of traditional systems, this software was designed to be a natural extension for the management process of a restaurant franchise, contributing to not only met their needs but also to improve the overall efficiency of their workflow.',
     role: ['Front-End', 'UI/UX Design'],
