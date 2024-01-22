@@ -71,7 +71,7 @@ export const Home = () => {
               Hello
             </MotionTitle>
           </motion.h2>
-          <br/>
+          <br/><br/>
           <MotionP delay={.2} isInView={animate}>
             <motion.p 
               className={styles.lead}
