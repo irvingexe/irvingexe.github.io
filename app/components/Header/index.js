@@ -44,9 +44,9 @@ export const Header = () => {
           <div className={styles['header-content']}>
             <div className={`${styles['desktop-item']} a`} onClick={() => handleScroll(home)}>
               <svg className={styles.logo} width="1em" height="1em" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.0222 19.7033L13 0.5" stroke="#D2D2D2" strokeWidth="4"/>
-                <path d="M22 1L4 1" stroke="#D2D2D2" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M19 20L1 20" stroke="#D2D2D2" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M10.0222 19.7033L13 0.5" stroke="#e3e3e3" strokeWidth="4"/>
+                <path d="M22 1L4 1" stroke="#e3e3e3" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M19 20L1 20" stroke="#e3e3e3" strokeWidth="2" strokeLinecap="round"/>
               </svg>
             </div>
             <div className={`${styles['mobile-item']} a`} onClick={() => handleScroll(contact)}>Contact</div>
@@ -61,7 +61,7 @@ export const Header = () => {
                   <mask id="path-1-inside-1_6_215" fill="white">
                   <path d="M0 0H46V20H0V0Z"/>
                   </mask>
-                  <path d="M0 1H46V-1H0V1ZM46 19H0V21H46V19Z" fill="#D2D2D2" mask="url(#path-1-inside-1_6_215)"/>
+                  <path d="M0 1H46V-1H0V1ZM46 19H0V21H46V19Z" fill="#e3e3e3" mask="url(#path-1-inside-1_6_215)"/>
                 </svg>
             </div>
           </div>

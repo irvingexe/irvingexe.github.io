@@ -34,7 +34,7 @@
 
 body {
   background-color: #181B1A;
-  color: #D2D2D2;
+  color: #e3e3e3;
 }
 
 p {
@@ -43,7 +43,7 @@ p {
 
 a, .a {
   text-decoration: none;
-  color: #D2D2D2;
+  color: #e3e3e3;
   cursor: pointer;
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.3s;
 }
@@ -73,7 +73,7 @@ input, textarea, button {
   background: none;
   border-style: none;
   border-bottom: solid rgba(209, 209, 209, 0.5)1px;
-  color: #D2D2D2;
+  color: #e3e3e3;
   transition: linear 0.5s;
   caret-color: #8E94AD;
   padding: 0 0.5em;
@@ -97,7 +97,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s, border-bottom linear 0.5s;
-    -webkit-text-fill-color: #D2D2D2 !important;
+    -webkit-text-fill-color: #e3e3e3 !important;
 }
 
 label {
@@ -145,7 +145,6 @@ h2 {
   font-family: var(--darker-grotesque);
   font-size: 96px;
   font-weight: 400;
-  opacity: 0.9;
   color: #AD8E94;
 }
 
@@ -233,8 +232,8 @@ h4 {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 3px solid #D2D2D2;
-  border-color: #D2D2D2 transparent #D2D2D2 transparent;
+  border: 3px solid #e3e3e3;
+  border-color: #e3e3e3 transparent #e3e3e3 transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 *:hover > div > .lds-dual-ring:after {

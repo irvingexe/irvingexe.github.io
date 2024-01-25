@@ -47,7 +47,7 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
               <button className={styles.button}>
                 VISIT WEBSITE 
                 <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10.6908 0.495819H2.19498L2.19498 1.69373L8.63903 1.69797L0.0710297 10.266L0.920609 11.1156L9.48861 2.54755L9.49286 8.99161L10.6908 8.99161V0.495819Z" fill="#D2D2D2"/>
+                  <path d="M10.6908 0.495819H2.19498L2.19498 1.69373L8.63903 1.69797L0.0710297 10.266L0.920609 11.1156L9.48861 2.54755L9.49286 8.99161L10.6908 8.99161V0.495819Z" fill="#e3e3e3"/>
                 </svg>
               </button>
             </a>
@@ -95,7 +95,7 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
                 <a href={project.teamURL} target="_">
                   {project.team}
                   <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.6908 0.495819H2.19498L2.19498 1.69373L8.63903 1.69797L0.0710297 10.266L0.920609 11.1156L9.48861 2.54755L9.49286 8.99161L10.6908 8.99161V0.495819Z" fill="#D2D2D2"/>
+                    <path d="M10.6908 0.495819H2.19498L2.19498 1.69373L8.63903 1.69797L0.0710297 10.266L0.920609 11.1156L9.48861 2.54755L9.49286 8.99161L10.6908 8.99161V0.495819Z" fill="#e3e3e3"/>
                   </svg>
                 </a>
               </div>}
