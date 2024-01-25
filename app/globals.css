@@ -53,11 +53,11 @@ a path, .a path {
 }
 
 a:hover, .a:hover {
-  color: #8E94AD;
+  color: #b1c2ff;
 }
 
 a:hover path, .a:hover path {
-  fill: #8E94AD;
+  fill: #b1c2ff;
 }
 
 a img, .a img{
@@ -65,7 +65,7 @@ a img, .a img{
 }
 
 a:hover img, .a:hover img{
-  color: #8E94AD;
+  color: #b1c2ff;
   filter: brightness(0.7);
 }
 
@@ -75,7 +75,7 @@ input, textarea, button {
   border-bottom: solid rgba(209, 209, 209, 0.5)1px;
   color: #e3e3e3;
   transition: linear 0.5s;
-  caret-color: #8E94AD;
+  caret-color: #b1c2ff;
   padding: 0 0.5em;
 }
 
@@ -89,7 +89,7 @@ textarea {
 
 input:focus-visible, input:hover, textarea:focus-visible, textarea:hover {
   outline: none;
-  border-bottom: solid #8E94AD 1px;
+  border-bottom: solid #b1c2ff 1px;
 }
 
 input:-webkit-autofill,
@@ -108,7 +108,7 @@ label {
 }
 
 label:focus-within {
-  color: #8E94AD;
+  color: #b1c2ff;
 }
 
 .form-item {
@@ -116,7 +116,7 @@ label:focus-within {
 }
 
 .form-item:focus-within > label {
-  color: #8E94AD;
+  color: #b1c2ff;
   opacity: 0.7;
 }
 
@@ -135,7 +135,7 @@ button, [type='submit'] {
 }
 
 button:hover {
-  border-color: #8E94AD;
+  border-color: #b1c2ff;
   color: #a5afd8;
   background-color: rgb(77 77 77 / 70%);
 }
@@ -146,6 +146,7 @@ h2 {
   font-size: 96px;
   font-weight: 400;
   color: #AD8E94;
+  color: #b79299;
 }
 
 h3 {
@@ -237,7 +238,7 @@ h4 {
   animation: lds-dual-ring 1.2s linear infinite;
 }
 *:hover > div > .lds-dual-ring:after {
-  border-color: #8E94AD transparent #8E94AD transparent;
+  border-color: #b1c2ff transparent #b1c2ff transparent;
 }
 @keyframes lds-dual-ring {
   0% {
