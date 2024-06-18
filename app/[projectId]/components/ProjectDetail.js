@@ -55,7 +55,7 @@ const ProjectDetail = ({ projectId }) => {
       >
         <ProjectContent 
           project={project} 
-          nextImg={`portfolio/projects/${project.nextIndex-1}/cover`}
+          nextImg={`portfolio/projects/${project.nextIndex-1}/main`}
           nextProject={projects.get(project.next)}
           next={handleNext}
           animate={false}
