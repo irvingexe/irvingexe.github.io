@@ -1,7 +1,7 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 
-export const MotionP = ({isInView, animate = true, delay = 0, once = false, children}) => {
+export const MotionP = ({isInView, className, animate = true, delay = 0, once = false, children, variant = ''}) => {
 
   const pFadeIn = {
     initial: {
@@ -17,7 +17,7 @@ export const MotionP = ({isInView, animate = true, delay = 0, once = false, chil
 
   return (
     <motion.div
-      className={`${(isInView || !animate) ? 'go' : ''} anim-p origin-top-left w-full`}
+      className={`${className} ${(isInView || !animate) ? 'go' : ''} ${variant} anim-p origin-top-left w-full`}
       variants={pFadeIn}
       transition={{duration: .5, delay: delay}}
       initial={animate ? 'initial' : 'animate'}

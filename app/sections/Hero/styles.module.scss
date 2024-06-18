@@ -1,0 +1,114 @@
+#home {
+  height: 100vh;
+  height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+  color: var(--background-color);
+
+  .image {
+    bottom: 0;
+    height: 100%;
+    right: calc((100% - min(80%, 70rem)) / 4);
+    background-color: #CEC8BE;
+    display: flex;
+    align-items: flex-end;
+
+    .img {
+      width: min(48vh, 50vw);
+      height: min(48vh, 50vw);
+      width: min(48svh, 50vw);
+      height: min(48svh, 50vw);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: bottom;
+        mix-blend-mode: darken;
+      }
+    }
+  }
+
+  .content-container {
+    position: fixed;
+    width: 100%;
+
+    .content {
+      height: 100vh;
+      height: 100svh;
+      margin: auto;
+      padding: 4rem 0 2rem 0;
+      width: min(80%, 70rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      gap: 1rem;
+
+      .hello {
+        font-family: var(--league-gothic);
+        font-weight: 300;
+        font-size: min(13rem, min(29vh, 19vw));
+        font-size: min(13rem, min(29svh, 19vw));
+        margin: 0;
+        line-height: 1.1;
+        text-wrap: balance;
+      }
+
+      .name {
+        color: #32312F;
+      }
+
+      .role {
+        font-size: 24px;
+        text-wrap: balance;
+        font-weight: 600;
+        color: #32312F;
+
+        span {
+          color: #E16841;
+        }
+      }
+
+      .scroll {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-weight: 600;
+        color: #32312F;
+
+        .bounce {
+          width: .7rem;
+          height: .7rem;
+          background-color: #32312F;
+          border-radius: 50%;
+          animation: bounce .5s cubic-bezier(.5, 0.05, 1, .5) infinite;
+          animation-direction: alternate;
+          transform-origin: 50% 70%;
+        }
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: translateY(0) scaleY(1.1);
+        }
+
+        90% {
+          transform: translateY(27px) scaleY(.8);
+        }
+
+        100% {
+          transform: translateY(30px) scaleY(.3);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  #home .projects {
+    opacity: .7;
+  }
+}

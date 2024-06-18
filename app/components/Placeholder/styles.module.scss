@@ -1,0 +1,9 @@
+.placeholder {
+  background-color: #adad9f;
+  min-height: 1em;
+  border-radius: 1rem;
+
+  &.fit {
+    width: fit-content;
+  }
+}

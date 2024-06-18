@@ -7,8 +7,8 @@ import Lenis from '@studio-freight/lenis'
 import { useLastRoute } from '@/app/contexts/LastRouteProvider'
 import { useUI } from '@/app/contexts/UIProvider'
 import { useLenisScroll } from '@/app/contexts/ScrollProvider'
-import { disablePageScroll } from 'scroll-lock'
 import { CldImage } from 'next-cloudinary'
+import useWindowSize from '@/app/utils/useWindowSize'
 
 export const ProjectCard = ({close, next, scrollNext, styles, children, onProjectOpen = () => null, e, i, inner, returnHome = () => null}) => {
   const imgRef = useRef(null)
@@ -16,19 +16,19 @@ export const ProjectCard = ({close, next, scrollNext, styles, children, onProjec
   const scrollContainer = useRef();
   const scrollRef = useRef();
   const {lastRoute, setRoute} = useLastRoute();
-  const [open, setOpen] = useState(inner && (lastRoute === '/'));
+  const [open, setOpen] = useState(inner);
   const [fadeIn, setFadeIn] = useState()
   const {hideUI} = useUI();
   const {scroll} = useLenisScroll();
   const [isClient, setClient] = useState(null);
+  const windowSize = useWindowSize();
 
   const handleScroll = (projectId) => {
     document.getElementById(`work-${projectId}`).scrollIntoView({ behavior: 'smooth' });
   }
 
   const openProject = (projectId) => {
-    scroll.stop();
-    disablePageScroll();
+    if (scroll) scroll.stop();
     handleScroll(projectId);
     onProjectOpen();
     hideUI(true);
@@ -71,7 +71,7 @@ export const ProjectCard = ({close, next, scrollNext, styles, children, onProjec
     offset: ['0 1', '1 0']
   })
 
-  const translateProgress = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+  const translateProgress = useTransform(scrollYProgress, [0, 1], [-300, 100]);
 
   useEffect(() => {
     setClient(true);
@@ -110,7 +110,8 @@ export const ProjectCard = ({close, next, scrollNext, styles, children, onProjec
   return (
     <motion.div 
       ref={imgRef}  
-      key={i} id={`work-${e.route}`} 
+      key={i} 
+      id={`work-${e.route}`} 
       className={`${inner ? styles.inner : ''} ${styles.project} ${close ? styles.close : ''} ${open ? styles.open : ''} ${next ? styles.next : ''}`}
     >
       <motion.div 
@@ -118,40 +119,39 @@ export const ProjectCard = ({close, next, scrollNext, styles, children, onProjec
         onClick={() => {if (!inner) openProject(e.route)}}
         variants={!(open || inner) && fadeInAnimation}
         transition={{ duration: .7, ease: [0.65, 0, 0.35, 1]}}
-        initial={fadeIn ? 'initial' : 'animate'}
-        animate={fadeIn ? 'initial' : 'animate'}
-        whileInView={fadeIn && 'animate'}
+        initial={(fadeIn && (windowSize.width > 700)) ? 'initial' : 'animate'}
+        animate={(fadeIn && (windowSize.width > 700)) ? 'initial' : 'animate'}
+        whileInView={(fadeIn && (windowSize.width > 700)) && 'animate'}
       >
-        <h2 className={styles.number}>0{e.index}</h2>
         <motion.div
           className={styles['bg-container']}
           style={{
             translateY: imgRef.current && translateProgress,
           }}
         >
-        {isClient && 
-          <CldImage 
-            priority={inner} 
-            alt={e.name} 
-            src={`portfolio/projects/${i}/cover`} 
-            className={styles.bg}
-            style={inner ? {overflow: 'auto'} : {}}
-            width={window.innerWidth < 600
-                    ? window.innerWidth * 2 
-                    : (window.innerWidth < 1600
-                      ? window.innerWidth * 1.1 
-                      : 1500)}
-            height={window.innerHeight * .7}
-            sizes={'(max-width: 1600px) 80vw, 1500px'}
-          />
-        }
+          {isClient && 
+            <CldImage 
+              priority={inner} 
+              alt={e.name} 
+              src={`portfolio/projects/${i}/main`} 
+              className={styles.bg}
+              style={inner ? {overflow: 'auto'} : {}}
+              width={windowSize.width < 600
+                      ? windowSize.width * 2 
+                      : (windowSize.width < 1600
+                        ? windowSize.width * 1.1 
+                        : 1500)}
+              height={windowSize.height * .7}
+              sizes={'(max-width: 1600px) 80vw, 1500px'}
+            />
+          }
         </motion.div>
         {(open || inner) && 
           <button className={`${styles.back} ${styles.button}`} onClick={() => inner && handleBack()} >
             <svg width="33" height="26" viewBox="0 0 33 26" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_197_692)">
-              <path d="M12.5979 7.7051C12.5425 7.70503 12.4876 7.7138 12.4365 7.73089C12.3855 7.74798 12.3394 7.77304 12.3009 7.80455L6.22977 12.7647C6.15553 12.8251 6.11402 12.9059 6.11402 12.9899C6.11402 13.074 6.15553 13.1548 6.22977 13.2152L12.3273 18.1955C12.3643 18.228 12.4092 18.2544 12.4594 18.273C12.5096 18.2915 12.564 18.302 12.6194 18.3036C12.6748 18.3052 12.7301 18.2981 12.7819 18.2825C12.8337 18.2669 12.881 18.2433 12.9209 18.213C12.9609 18.1827 12.9927 18.1464 13.0144 18.1062C13.0361 18.066 13.0473 18.0228 13.0474 17.9791C13.0474 17.9354 13.0363 17.8921 13.0146 17.8519C12.993 17.8117 12.9612 17.7753 12.9213 17.745L7.10015 12.9903L12.8949 8.25565C12.9511 8.20974 12.9889 8.15182 13.0036 8.08911C13.0183 8.0264 13.0093 7.96167 12.9776 7.90298C12.9459 7.84429 12.8931 7.79423 12.8255 7.75905C12.758 7.72386 12.6789 7.7051 12.5979 7.7051Z" fill="#e3e3e3"/>
-              <path d="M32.5875 12.6653L6.5256 12.6653C6.4162 12.6653 6.31127 12.6995 6.23392 12.7605C6.15656 12.8214 6.1131 12.9041 6.1131 12.9903C6.1131 13.0765 6.15656 13.1591 6.23392 13.2201C6.31127 13.281 6.4162 13.3153 6.5256 13.3153L32.5875 13.3153C32.6969 13.3153 32.8018 13.2811 32.8792 13.2201C32.9565 13.1592 33 13.0765 33 12.9903C33 12.9041 32.9565 12.8214 32.8792 12.7605C32.8018 12.6995 32.6969 12.6653 32.5875 12.6653Z" fill="#e3e3e3"/>
+              <path d="M12.5979 7.7051C12.5425 7.70503 12.4876 7.7138 12.4365 7.73089C12.3855 7.74798 12.3394 7.77304 12.3009 7.80455L6.22977 12.7647C6.15553 12.8251 6.11402 12.9059 6.11402 12.9899C6.11402 13.074 6.15553 13.1548 6.22977 13.2152L12.3273 18.1955C12.3643 18.228 12.4092 18.2544 12.4594 18.273C12.5096 18.2915 12.564 18.302 12.6194 18.3036C12.6748 18.3052 12.7301 18.2981 12.7819 18.2825C12.8337 18.2669 12.881 18.2433 12.9209 18.213C12.9609 18.1827 12.9927 18.1464 13.0144 18.1062C13.0361 18.066 13.0473 18.0228 13.0474 17.9791C13.0474 17.9354 13.0363 17.8921 13.0146 17.8519C12.993 17.8117 12.9612 17.7753 12.9213 17.745L7.10015 12.9903L12.8949 8.25565C12.9511 8.20974 12.9889 8.15182 13.0036 8.08911C13.0183 8.0264 13.0093 7.96167 12.9776 7.90298C12.9459 7.84429 12.8931 7.79423 12.8255 7.75905C12.758 7.72386 12.6789 7.7051 12.5979 7.7051Z" fill="#252524"/>
+              <path d="M32.5875 12.6653L6.5256 12.6653C6.4162 12.6653 6.31127 12.6995 6.23392 12.7605C6.15656 12.8214 6.1131 12.9041 6.1131 12.9903C6.1131 13.0765 6.15656 13.1591 6.23392 13.2201C6.31127 13.281 6.4162 13.3153 6.5256 13.3153L32.5875 13.3153C32.6969 13.3153 32.8018 13.2811 32.8792 13.2201C32.9565 13.1592 33 13.0765 33 12.9903C33 12.9041 32.9565 12.8214 32.8792 12.7605C32.8018 12.6995 32.6969 12.6653 32.5875 12.6653Z" fill="#252524"/>
               </g>
               <defs>
               <clipPath id="clip0_197_692">

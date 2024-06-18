@@ -1,6 +1,6 @@
 import 'normalize.css/normalize.css'
 import './globals.css'
-import { darkerGrotesque, inter, notoSans } from './assets/fonts';
+import { darkerGrotesque, inter, notoSans, leagueGothic } from './assets/fonts';
 import { LastRouteProvider } from './contexts/LastRouteProvider';
 import { UIProvider } from './contexts/UIProvider';
 import { ScrollProvider } from './contexts/ScrollProvider';
@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
       <LastRouteProvider>
         <UIProvider>
           <ScrollProvider>
-            <body className={`${inter.className} ${darkerGrotesque.variable} ${notoSans.variable}`}>{children}</body>
+            <body className={`${inter.className} ${darkerGrotesque.variable} ${notoSans.variable} ${leagueGothic.variable}`}>{children}</body>
           </ScrollProvider>
         </UIProvider>
       </LastRouteProvider>

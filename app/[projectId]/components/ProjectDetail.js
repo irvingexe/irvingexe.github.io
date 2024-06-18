@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation';
 import { ProjectContent } from '../../components/ProjectContainer/components/ProjectContent';
 import { ProjectCard } from '../../components/ProjectContainer/components/ProjectCard';
 import { useLastRoute } from '../../contexts/LastRouteProvider';
-import { enablePageScroll } from 'scroll-lock';
 import { ProjectContainer } from '../../components/ProjectContainer';
 
 const ProjectDetail = ({ projectId }) => {
@@ -37,10 +36,6 @@ const ProjectDetail = ({ projectId }) => {
       }, 1000);
     }, 300);
   }
-
-  useEffect(() => {
-    enablePageScroll();
-  }, [])
   
   if (!projects.has(projectId)) {
     return (<App/>);

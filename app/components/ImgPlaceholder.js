@@ -6,7 +6,7 @@ export const ImgPlaceholder = (props) => {
   const {noImage, ...newProps} = props;
 
   return (
-    <div className={`w-full h-full ${!loaded ? 'animate-pulse' : ''}`} style={loaded ? {backdropFilter: 'none', background: 'none'} : {}}>
+    <div className={`w-full h-full ${!loaded ? 'animate-pulse' : ''}`} style={loaded ? {backdropFilter: 'none', background: 'none'} : {background: '#adad9f'}}>
       {!props.noImage && 
         <CldImage 
           alt='' 

@@ -19,20 +19,19 @@ export const Work = () => {
   useEffect(() => {
     setClient(true)
   }, [])
+
+  //text-8xl font-medium uppercase font-extrabold
   
   return (
     <ProjectContainer>
-      <div className={`items-center ${styles.project}`} style={{minHeight: '80vh'}}>
-        <h2 className='leading-none'>
-          {isClient && <MotionTitle>{`Selected${(window.innerWidth < 600) ? '\n' : ' '}work`}</MotionTitle>}
+      <div className={`${styles['work-title']} ${open ? styles.open : ''} items-center`}>
+        <h2 className='leading-none text-3xl font-medium'>
+          {isClient && <MotionTitle>{`Selected work`}</MotionTitle>}
         </h2>
       </div>
       {[...projects.values()].map((e, i) => (
         <ProjectCard styles={styles} key={i} onProjectOpen={handleOpen} e={e} i={i}>
           {open && <ProjectContent
-            project={e} 
-            nextImg={`portfolio/projects/${e.nextIndex-1}/0`}
-            nextProject={projects.get(e.next)}
             animate={true}
             noImages={true}
           />}

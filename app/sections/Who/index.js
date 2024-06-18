@@ -76,7 +76,7 @@ export const Who = () => {
             animate={animate ? 'animate' : 'initial'}
           >
             <CldImage 
-              src='portfolio/me'
+              src='portfolio/portrait'
               width={350}
               height={500}
               sizes={'(max-width: 1500px) 40vw, 350px'}
@@ -93,10 +93,10 @@ export const Who = () => {
               transition={{duration: .5, delay: .15}}
               initial={'initial'}
               animate={animate ? 'animate' : 'initial'}
-              className='w-fit max-h-24'
+              className={`${styles['img-mobile-wrapper']} w-fit max-h-24`}
             >
               <CldImage 
-                src='portfolio/meRound'
+                src='portfolio/portrait'
                 width={200}
                 height={200}
                 className={styles['img-mobile']} 
@@ -107,12 +107,10 @@ export const Who = () => {
           </div>
             <div>
               <MotionP delay={.3} isInView={animate}>
-                <p>
-                  {"Thanks for stopping by. I'm Irving, Software Engineer."}
+                <p className='text-2xl font-light'>
+                  {"Thanks for stopping by! I'm Irving, Software Engineer."}
                   <br/><br/>
-                  {"As a multidisciplinary developer crafting web applications, I'm majorly involved in Front-End development specializing in visual and interactive web experiences."}
-                  <br/><br/>
-                  {'My expertise lies in creating robust digital solutions that not only look stunning but care about scalability and performance to deliver the best experience.'}
+                  {"As a developer, I'm passionate about building user-centric products.\nGreat digital products don't happen by chance. I leverage data and user insights to build experiences that drive user engagement and business growth."}
                 </p>
               </MotionP>
             </div>

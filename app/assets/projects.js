@@ -18,7 +18,7 @@ const projects = new Map([
     route: 'aladdin',
     name: 'Aladdin',
     subtitle: 'Marketing & Advertising',
-    description: 'Aladdin Broadway musical website.\n\nA digital platform to learn about the show. The website provides a convenient way to check the show program and purchase tickets online.',
+    description: 'Aladdin Broadway musical website.\nA digital platform to learn about the show. The website provides a convenient way to check the show program and purchase tickets online.',
     role: ['Front-End'],
     roleLong: ['Front-End Development'],
     team: 'Alucina Studio',

@@ -7,9 +7,13 @@ import { MotionDiv } from '@/app/components/animationWraps/MotionDiv'
 import {motion} from 'framer-motion'
 import { MotionTitle } from '@/app/components/animationWraps/MotionTitle'
 import { ImgPlaceholder } from '@/app/components/ImgPlaceholder'
+import Placeholder from '../../Placeholder'
+import useWindowSize from '@/app/utils/useWindowSize'
 
 export const ProjectContent = ({noImages, animate, project, nextImg, nextProject, next = () => null}) => {
   const [isClient, setClient] = useState(null);
+  const [nextPlaceholder, setNextPlaceholder] = useState(false);
+  const windowSize = useWindowSize();
 
   const fadeInAnimation = {
     initial: {
@@ -33,6 +37,11 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
     }
   }
 
+  const handleNext = () => {
+    setNextPlaceholder(true);
+    next();
+  }
+
   useEffect(() => {
     setClient(true);
   }, [setClient])
@@ -40,14 +49,20 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
   return (
     <div className={styles['project-detail']}>
       <div className={styles['project-desc']}>
-        <MotionP delay={1} once={true} animate={animate}><p>{project.description}</p></MotionP>
-        {project.URL && <div className={`w-fit ${styles['website-btn']}`}>
+        {<MotionP delay={.5} once={true} animate={animate} variant='light'>
+          <p>
+            <Placeholder loading={!project} lines={4} height={'.9em'}>
+              {project && project.description}
+            </Placeholder>
+          </p>
+        </MotionP>}
+        {project && project.URL && <div className={`w-fit ${styles['website-btn']}`}>
           <MotionDiv delay={1.3} once={true} animate={animate}>
             <a href={project.URL} target="_">
               <button className={styles.button}>
                 VISIT WEBSITE 
                 <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10.6908 0.495819H2.19498L2.19498 1.69373L8.63903 1.69797L0.0710297 10.266L0.920609 11.1156L9.48861 2.54755L9.49286 8.99161L10.6908 8.99161V0.495819Z" fill="#e3e3e3"/>
+                  <path d="M10.6908 0.495819H2.19498L2.19498 1.69373L8.63903 1.69797L0.0710297 10.266L0.920609 11.1156L9.48861 2.54755L9.49286 8.99161L10.6908 8.99161V0.495819Z" fill="#252524"/>
                 </svg>
               </button>
             </a>
@@ -57,45 +72,43 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
       <motion.div 
         className={styles['detail-container']}
         variants={fadeInDetail}
-        transition={{duration: .5, delay: 1.5}}
+        transition={{duration: .5, delay: .8}}
         initial={animate ? 'initial' : 'animate'}
         animate={animate && 'animate'}
       >
         <div className={styles['project-about']}>
-          {isClient && 
-            <ImgPlaceholder 
-              loading="lazy"
-              sizes={'(max-width: 1000px) 100vw, (max-width: 1600px) 50vw, 550px'}
-              noImage={noImages}
-              alt={project.name}
-              src={`portfolio/projects/${project.index-1}/1`}
-              className={styles['first-image']}
-              width={window.innerWidth < 600
-                      ? window.innerWidth * 2 
-                      : (window.innerWidth < 1000
-                        ? window.innerWidth * 1.2
-                        : (window.innerWidth < 1600
-                          ? window.innerWidth * .5
-                          : 600))}
-              height={window.innerWidth * .5}
-            />
-          }
+          {<ImgPlaceholder 
+            loading="lazy"
+            sizes={'(max-width: 1000px) 100vw, (max-width: 1600px) 50vw, 550px'}
+            noImage={noImages}
+            alt={project ? project.name : ''}
+            src={noImages ? '' : `portfolio/projects/${project.index-1}/1`}
+            className={styles['first-image']}
+            width={windowSize.width < 600
+                    ? windowSize.width * 2 
+                    : (windowSize.width < 1000
+                      ? windowSize.width * 1.2
+                      : (windowSize.width < 1600
+                        ? windowSize.width * .5
+                        : 600))}
+            height={windowSize.width * .5}
+          />}
           <div className={styles['about-content']}>
             <div className={styles.about}>
-              <h3>About</h3>
-              <p>{project.about}</p>
+              <Placeholder loading={!project} fit><h3>About</h3></Placeholder>
+              <Placeholder loading={!project} lines={4}><p>{project && project.about}</p></Placeholder>
             </div>
             <div className={styles['about-sub']}>
               <div>
-                <h4>Role</h4>
-                {project.roleLong.map((e, i) => (<div key={i}>{e}</div>))}
+                <Placeholder loading={!project}><h4 className='text-sm'>ROLE</h4></Placeholder>
+                {project && project.roleLong.map((e, i) => (<div key={i}>— {e}</div>))}
               </div>
-              {project.team && <div>
-                <h4>Team</h4>
+              {project && project.team && <div>
+                <h4 className='text-sm'>TEAM</h4>
                 <a href={project.teamURL} target="_">
                   {project.team}
                   <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.6908 0.495819H2.19498L2.19498 1.69373L8.63903 1.69797L0.0710297 10.266L0.920609 11.1156L9.48861 2.54755L9.49286 8.99161L10.6908 8.99161V0.495819Z" fill="#e3e3e3"/>
+                    <path d="M10.6908 0.495819H2.19498L2.19498 1.69373L8.63903 1.69797L0.0710297 10.266L0.920609 11.1156L9.48861 2.54755L9.49286 8.99161L10.6908 8.99161V0.495819Z" fill="#252524"/>
                   </svg>
                 </a>
               </div>}
@@ -106,21 +119,21 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
           {isClient && 
             <ImgPlaceholder 
               noImage={noImages} 
-              alt={project.name} 
-              src={`portfolio/projects/${project.index-1}/2`}
+              alt={project ? project.name : ''}
+              src={noImages ? '' : `portfolio/projects/${project.index-1}/2`}
               sizes={'(max-width: 1600px) 10vw, 1500px'}
-              width={window.innerWidth < 600
-                      ? window.innerWidth * 2 
-                      : (window.innerWidth < 1600
-                        ? window.innerWidth * 1.2
+              width={windowSize.width < 600
+                      ? windowSize.width * 2 
+                      : (windowSize.width < 1600
+                        ? windowSize.width * 1.2
                         : 1500)}
-              height={window.innerWidth}
+              height={windowSize.width}
             />
           }
         </div>
         <div className={styles['next-project']}>
           <div className={styles['next-title']}><h3><MotionTitle>Next work</MotionTitle></h3></div>
-          <div className={styles['next-container']} onClick={next}>
+          <div className={styles['next-container']} onClick={handleNext}>
             <motion.div 
               className={`h-full ${styles['next-image']}`}
               variants={fadeInAnimation}
@@ -134,20 +147,25 @@ export const ProjectContent = ({noImages, animate, project, nextImg, nextProject
                 alt='Next' 
                 src={nextImg}
                 sizes={'(max-width: 1600px) 100vw, 1500px'}
-                width={window.innerWidth < 600
-                        ? window.innerWidth * 2 
-                        : (window.innerWidth < 1600
-                          ? window.innerWidth * 1.2
+                width={windowSize.width < 600
+                        ? windowSize.width * 2 
+                        : (windowSize.width < 1600
+                          ? windowSize.width * 1.2
                           : 1500)}
-                height={window.innerWidth * .5}
+                height={windowSize.width * .5}
               />
             }
             </motion.div>
+            {project && 
             <div className={styles['next-name']}>
               <div className={styles.gradient}/>
               <ProjectHeader project={nextProject}/>
-              <h2 className={styles.number}>0{nextProject.index}</h2>
-            </div>
+              {nextPlaceholder &&
+              <ProjectContent
+                animate={true}
+                noImages={true}
+              />}
+            </div>}
           </div>
         </div>
       </motion.div>

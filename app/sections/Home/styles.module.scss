@@ -4,6 +4,7 @@
 
   .content {
     min-height: 100vh;
+    min-height: 100svh;
     margin: auto;
     padding: 4rem 0 6rem 0;
     width: min(80%, 70rem);
@@ -89,6 +90,8 @@
   filter: blur(1px);
   width: min(90vh, 110vw);
   height: min(90vh, 110vw);
+  width: min(90svh, 110vw);
+  height: min(90svh, 110vw);
   transition: cubic-bezier(0.65, 0, 0.35, 1) 0.5s;
 
   &.magenta {
